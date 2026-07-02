@@ -72,14 +72,14 @@ export const HeroSection = () => {
         </div>
 
         {/* Right Architectural Graphic Element */}
-        <div className="md:col-span-5 relative flex justify-center items-center mt-12 md:mt-0 md:pl-8">
-          {" "}
+        <div className="md:col-span-5 relative flex justify-center items-center mt-12 md:mt-0 md:pl-8 w-full raw-container">
           {/* Decorative Dashed Circle Layout */}
-          <div className="absolute w-[120%] h-[120%] border-dashed border-[#d4c0d7] rounded-full animate-[spin_40s_linear_infinite] opacity-40pointer-events-none"></div>
+          <div className="absolute w-[110%] h-[110%] border-dashed border-[#d4c0d7] rounded-full animate-[spin_40s_linear_infinite] opacity-40 pointer-events-none"></div>
+          
           {/* Framed Graphic Frame */}
-          <div className="relative z-20 w-full max-w-90 rounded-full md:max-w-none aspect-square bg-white border-4 border-[#1b1b1b] hard-shadow p-2 animate-float overflow-hidden">
+          <div className="relative z-20 w-full max-w-[280px] sm:max-w-[340px] md:max-w-full aspect-square rounded-full bg-white border-4 border-[#1b1b1b] hard-shadow p-2 animate-float overflow-hidden">
             <img
-              className="w-full rounded-full h-full scale-100 grayscale  hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
               alt="A black and white portrait of pahasara"
               src="/profile.png"
             />
@@ -87,7 +87,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Technical Specs Strip (Perfectly Seamless Marquee Layout Loop) */}
+      {/* Technical Specs Strip */}
       <div className="mt-24 border-y-4 border-[#1b1b1b] overflow-hidden bg-[#1b1b1b] py-3 -mx-4 md:-mx-12 -rotate-1 relative z-10 select-none">
         <div className="flex whitespace-nowrap w-max animate-[marquee_25s_linear_infinite]">
           {/* Track 1 */}
