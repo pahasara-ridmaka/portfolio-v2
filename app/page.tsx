@@ -18,6 +18,7 @@ export default function DevArchitect() {
       imagePreview: "/images/projects/personal-portfolio.png",
       status: "LIVE",
       githubLink: "https://github.com/pahasara-ridmaka/portfolio-v2",
+      liveLink: "https://www.pahasara.me/",
     },
     {
       id: "PRJ_02",

@@ -9,6 +9,7 @@ interface Project {
   tech: string[];
   imagePreview: string;
   githubLink?: string;
+  liveLink?: string;
 }
 
 interface ProjectsSectionProps {
@@ -101,9 +102,16 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 >
                   Inspect
                 </button>
-                <button className="bg-transparent border-2 border-[#1b1b1b] px-6 py-3 font-['JetBrains_Mono',monospace] text-[12px] uppercase hover:bg-white hover:text-[#1b1b1b] transition-all group-hover:border-white">
-                  Launch
-                </button>
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-transparent border-2 border-[#1b1b1b] px-6 py-3 font-['JetBrains_Mono',monospace] text-[12px] uppercase hover:bg-[#32ff00] hover:text-[#1b1b1b] transition-all"
+                  >
+                    Visit Live
+                  </a>
+                )}
               </div>
             </div>
           ))}
