@@ -30,7 +30,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         }}
       ></div>
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-50 max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
           <span className="font-['JetBrains_Mono',monospace] text-[#32ff00] text-[12px] block mb-2">
