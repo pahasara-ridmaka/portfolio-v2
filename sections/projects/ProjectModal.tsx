@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom'; // 1. Import createPortal
+import { createPortal } from 'react-dom';
 
 interface Project {
   title: string;
@@ -40,15 +40,17 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     >
       <div className="relative w-full max-w-3xl animate-in fade-in zoom-in-95 duration-200">
         
-        <button 
-          onClick={onClose} 
-          className="absolute -top-8 right-0 font-['JetBrains_Mono',monospace] text-white uppercase text-[12px] hover:text-[#bd00ff] cursor-pointer"
-        >
-          [ Close_X ]
-        </button>
-        
         {/* Main Content Modal Base Card */}
-        <div className="text-black bg-[#f9f9f9] border-4 border-[#1b1b1b] w-full p-6 md:p-12 shadow-2xl">
+        <div className="relative text-black bg-[#f9f9f9] border-4 border-[#1b1b1b] w-full p-6 pt-16 md:p-12 shadow-2xl">
+          
+          {/* Adjusted Close Button sizing */}
+          <button 
+            onClick={onClose} 
+            className="absolute top-4 right-4 bg-[#1b1b1b] text-white px-2 py-1 font-['JetBrains_Mono',monospace] uppercase text-[10px] tracking-wider border-2 border-[#1b1b1b] hover:bg-[#bd00ff] hover:border-[#bd00ff] cursor-pointer transition-colors z-10"
+          >
+            [ x ]
+          </button>
+
           <div className="grid md:grid-cols-2 gap-8">
             <img 
               src={project.imagePreview} 
@@ -88,6 +90,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
       </div>
     </div>,
-    document.body // 3. Target destination
+    document.body
   );
 };

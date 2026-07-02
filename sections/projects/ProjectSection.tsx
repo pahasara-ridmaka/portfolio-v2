@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ProjectModal } from "./ProjectModal";
 
-
 interface Project {
   id: string | number;
   title: string;
@@ -20,7 +19,10 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects"  className="relative w-full py-20 px-4 md:px-12 bg-[#1b1b1b] text-[#f9f9f9] border-t-4 border-[#f9f9f9]">
+    <section
+      id="projects"
+      className="relative w-full py-20 px-4 md:px-12 bg-[#1b1b1b] text-[#f9f9f9] border-t-4 border-[#f9f9f9]"
+    >
       {/* Background Subtle Grid */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
@@ -77,7 +79,8 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 <p className="font-['Archivo_Narrow',sans-serif] text-[16px] opacity-80 max-w-2xl mb-4">
                   {project.description}
                 </p>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-x-2 gap-y-2">
+                  {" "}
                   {project.tech.map((t) => (
                     <span
                       key={t}
@@ -91,7 +94,10 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
               {/* Actions */}
               <div className="relative z-10 flex md:flex-col gap-2 shrink-0">
-                <button onClick={() => setSelectedProject(project)} className="bg-[#1b1b1b] text-white px-6 py-3 font-['JetBrains_Mono',monospace] text-[12px] uppercase hover:bg-[#32ff00] hover:text-[#1b1b1b] transition-all">
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="bg-[#1b1b1b] text-white px-6 py-3 font-['JetBrains_Mono',monospace] text-[12px] uppercase hover:bg-[#32ff00] hover:text-[#1b1b1b] transition-all"
+                >
                   Inspect
                 </button>
                 <button className="bg-transparent border-2 border-[#1b1b1b] px-6 py-3 font-['JetBrains_Mono',monospace] text-[12px] uppercase hover:bg-white hover:text-[#1b1b1b] transition-all group-hover:border-white">
@@ -101,11 +107,10 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             </div>
           ))}
         </div>
-          <ProjectModal 
-          project={selectedProject} 
-          onClose={() => setSelectedProject(null)} 
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
         />
-      
       </div>
     </section>
   );

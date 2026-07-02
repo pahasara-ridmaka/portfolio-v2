@@ -142,22 +142,24 @@ export default function CertificationSection({
       {previewImage && (
         <div 
           onClick={() => setPreviewImage(null)}
-          className="fixed inset-0 z-100 flex flex-col items-center justify-center p-4 bg-[#1b1b1b]/90 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-[#1b1b1b]/90 backdrop-blur-sm"
         >
           <div 
             onClick={(e) => e.stopPropagation()} 
-            className="relative w-full max-w-3xl bg-white p-1.5 md:p-2 border-4 border-[#1b1b1b] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+            className="relative w-full max-w-3xl bg-[#f9f9f9] p-6 pt-16 md:p-12 border-4 border-[#1b1b1b] shadow-2xl animate-in fade-in zoom-in-95 duration-200"
           >
+            {/* Same Matching Close Button */}
             <button 
               onClick={() => setPreviewImage(null)} 
-              className="absolute -top-8 right-0 font-['JetBrains_Mono',monospace] text-white uppercase text-[12px] hover:text-[#bd00ff] cursor-pointer"
+              className="absolute top-4 right-4 bg-[#1b1b1b] text-white px-2 py-1 font-['JetBrains_Mono',monospace] uppercase text-[10px] tracking-wider border-2 border-[#1b1b1b] hover:bg-[#bd00ff] hover:border-[#bd00ff] cursor-pointer transition-colors z-10"
             >
-              [ Close_Preview ]
+              [ x ]
             </button>
+            
             <img 
               src={previewImage} 
               alt="Full Preview" 
-              className="w-full h-auto max-h-[75vh] object-contain border-2 border-[#1b1b1b]" 
+              className="w-full h-auto max-h-[65vh] object-contain border-4 border-[#1b1b1b]" 
             />
           </div>
         </div>
