@@ -1,65 +1,167 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import CertificationSection from "@/sections/certifications/CertificationSection";
+import NavBar from "@/components/NavBar";
+import ProjectSection from "@/sections/projects/ProjectSection";
+import { WhoamiSection } from "@/sections/whoami/WhoamiSection";
+import { HeroSection } from "@/sections/hero/HeroSection";
+import { Footer } from "@/components/Footer";
+
+export default function DevArchitect() {
+  const projects = [
+    {
+      id: "PRJ_01",
+      title: "Personal Portfolio Website",
+      description:
+        "A personal portfolio website built with Next.js, showcasing projects, certifications, and professional information.",
+      tech: ["Next.js", "TailwindCSS", "TypeScript"],
+      imagePreview: "/images/projects/personal-portfolio.png",
+      status: "LIVE",
+      githubLink: "https://github.com/pahasara-ridmaka/portfolio-v2",
+    },
+    {
+      id: "PRJ_02",
+      title: "visit PANAMA SRILANKA",
+      description:
+        "A full-stack tourism web app for Panama, Sri Lanka. Features interactive destination guides, secure user authentication, and tour booking workflows.",
+      tech: [
+        "NEXT.JS",
+        "PYTHON",
+        "TAILWINDCSS",
+        "POSTGRESQL",
+        "FASTAPI",
+        "SUPABASE",
+        "TYPESCRIPT",
+        "CLOUDINARY",
+      ],
+      imagePreview: "/images/projects/visit-panama-srilanka.png",
+      status: "ON GITHUB",
+      githubLink: "https://github.com/pahasara-ridmaka/visitPanamaSriLanaka",
+    },
+    {
+      id: "PRJ_03",
+      title: "LONDON AIRBNB LISTINGS ANALYTICS",
+      description:
+        "A Python-based KDD pipeline analyzing 28,480 London Airbnb listings for ICT 333 1.5 (USJ). Features custom data extraction and cleansing scripts to ensure reproducibility and statistical integrity.",
+      tech: [
+        "PYTHON",
+        "STATISTICS",
+        "MATPLOTLIB",
+        "NUMPY",
+        "PANDAS",
+        "SCIKIT-LEARN",
+        "JUPYTER NOTEBOOK",
+      ],
+      imagePreview: "/images/projects/london-airbnb-listings-analytics.png",
+      status: "ON GITHUB",
+      githubLink: "",
+    },
+    {
+      id: "PRJ_04",
+      title: "File Organizer Utility",
+      description:
+        "Cross-Platform File Organizer Utility: An application that automatically sorts and organizes cluttered download folders into category-specific subfolders.",
+      tech: ["PYTHON"],
+      imagePreview: "/images/projects/file-organizer.png",
+      status: "ON GITHUB",
+      githubLink: "https://github.com/pahasara-ridmaka/file_organizer_utility",
+    },
+  ];
+  const certifications = [
+    {
+      id: "CRT-AWS-01",
+      title: "AWS Academy Graduate - Cloud Foundations - Training Badge",
+      issuer: "Amazon Web Services (AWS)",
+      date: "Jun 2026",
+      image: "/images/certifications/aws-cloud-foundations.png",
+    },
+    {
+      id: "CRT-DC-01",
+      title: "Understanding Data Engineering",
+      issuer: "DataCamp",
+      date: "Jun 2026",
+      image: "/images/certifications/dc-understanding-data-engineering.png",
+    },
+    {
+      id: "CRT-AWS-02",
+      title: "AWS Academy Graduate - Data Engineering - Training Badge",
+      issuer: "Amazon Web Services (AWS)",
+      date: " Jun 2026",
+      image: "/images/certifications/aws-data-engineering.png",
+    },
+    {
+      id: "CRT-AWS-03",
+      title:
+        "AWS Academy Graduate - Machine Learning Foundations - Training Badge",
+      issuer: "Amazon Web Services (AWS)",
+      date: "Jun 2026",
+      image: "/images/certifications/aws-machine-learning.png",
+    },
+    {
+      id: "CRT-PM-01",
+      title: "Postman API Fundamentals Student Expert",
+      issuer: "Postman",
+      date: "Sep 2024",
+      image: "/images/certifications/postman-api-fundamentals.png",
+    },
+    {
+      id: "CRT-FCC-01",
+      title: "JavaScript Algorithms and Data Structures",
+      issuer: "freeCodeCamp",
+      date: "Dec 2023",
+      image: "/images/certifications/js-algorithms.png",
+    },
+    {
+      id: "CRT-RT-01",
+      title: "Typing certificate",
+      issuer: "Ratatype",
+      date: "Oct 2023",
+      image: "/images/certifications/typing-certificate.webp",
+    },
+    {
+      id: "CRT-HR-01",
+      title: "Python(Basic)",
+      issuer: "HackerRank",
+      date: "Jan 2023",
+      image: "/images/certifications/python-hackerank.png",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen min-w-screen">
+      <div className="bg-[#f9f9f9] text-[#1b1b1b] blueprint-grid min-h-screen selection:bg-[#bd00ff] selection:text-white overflow-x-hidden">
+
+        {/* TopNavBar */}
+        <NavBar />
+
+        {/* HERO SECTION */}
+        <HeroSection />
+
+        {/* WHOAMI SECTION  */}
+        <WhoamiSection />
+
+        {/* PROJECT SECTION */}
+
+        <ProjectSection projects={projects} />
+
+        {/* CERTIFICATION SECTION*/}
+        <CertificationSection certifications_data={certifications} />
+
+        {/* footer */}
+        <Footer />
+
+        {/* Background Decorative Elements */}
+        <div
+          aria-hidden="true"
+          className="fixed top-0 right-0 p-10 opacity-10 pointer-events-none select-none z-0"
+        >
+          <pre className="font-['JetBrains_Mono',monospace] font-medium text-[12px] leading-tight text-[#1b1b1b]">
+            {`01001000 01001001
+01010010 01000101
+01001101 01000101`}
+          </pre>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
