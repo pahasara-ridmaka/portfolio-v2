@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom'; // 1. Import createPortal
 
 interface Project {
   title: string;
@@ -16,7 +17,6 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
-  // Listen for the Escape key to close the modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -29,22 +29,17 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
   if (!project) return null;
 
-  return (
+  return createPortal(
     <div 
       onClick={(e) => {
-        // Closes the modal only if the empty space (backdrop) itself is clicked
         if (e.target === e.currentTarget) {
           onClose();
         }
       }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1b1b1b]/90 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-[#1b1b1b]/90 backdrop-blur-sm"
     >
-      {/* Container wrapping both the close button and card.
-        This enables absolute positioning relative to the card's top edge.
-      */}
       <div className="relative w-full max-w-3xl animate-in fade-in zoom-in-95 duration-200">
         
-        {/* MATCHED CLOSE BUTTON STYLE */}
         <button 
           onClick={onClose} 
           className="absolute -top-8 right-0 font-['JetBrains_Mono',monospace] text-white uppercase text-[12px] hover:text-[#bd00ff] cursor-pointer"
@@ -92,6 +87,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body // 3. Target destination
   );
 };
