@@ -68,19 +68,20 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
               {/* Main Content - Relative to stack over background preview */}
               <div className="relative z-10 grow">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="font-['Anton',sans-serif] text-[24px] uppercase">
+                {/* FIXED ALIGNMENT HERE: Added items-start (mobile) vs items-center (desktop) and flex-wrap */}
+                <div className="flex flex-wrap items-center sm:items-center gap-3 mb-2">
+                  <h3 className="font-['Anton',sans-serif] text-[24px] uppercase leading-tight">
                     {project.title}
                   </h3>
-                  <span className="px-2 py-0.5 bg-[#1b1b1b] text-[#32ff00] font-['JetBrains_Mono',monospace] text-[10px] uppercase group-hover:bg-white group-hover:text-[#1b1b1b]">
+                  <span className="inline-block shrink-0 px-2 py-0.5 bg-[#1b1b1b] text-[#32ff00] font-['JetBrains_Mono',monospace] text-[10px] uppercase group-hover:bg-white group-hover:text-[#1b1b1b]">
                     {project.status}
                   </span>
                 </div>
+                
                 <p className="font-['Archivo_Narrow',sans-serif] text-[16px] opacity-80 max-w-2xl mb-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-x-2 gap-y-2">
-                  {" "}
                   {project.tech.map((t) => (
                     <span
                       key={t}
