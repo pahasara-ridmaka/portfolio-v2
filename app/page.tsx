@@ -129,7 +129,9 @@ export default function DevArchitect() {
   ];
 
   return (
+    
     <main className="min-h-screen min-w-screen">
+      
       <div className="bg-[#f9f9f9] text-[#1b1b1b] blueprint-grid min-h-screen selection:bg-[#bd00ff] selection:text-white overflow-x-hidden">
 
         {/* TopNavBar */}
@@ -163,6 +165,7 @@ export default function DevArchitect() {
           </pre>
         </div>
       </div>
+      
     </main>
   );
 }
