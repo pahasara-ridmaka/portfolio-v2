@@ -1,3 +1,4 @@
+
 export const WhoamiSection = () => {
   return (
     <section
@@ -53,10 +54,10 @@ export const WhoamiSection = () => {
             {/* Environmental Constants (Anchors/Location/Uni) */}
             <div className="md:col-span-4 flex flex-col justify-between border-2 border-[#1b1b1b] p-6 bg-white">
               <div className="flex flex-col gap-5">
-                {/* <span className="block font-['JetBrains_Mono',monospace] text-[12px] text-[#bd00ff] uppercase font-bold mb-1">
+                <span className="block font-['JetBrains_Mono',monospace] text-[12px] text-[#bd00ff] uppercase font-bold mb-1">
                   // ENV_CONSTANTS
-                </span> */}
-                {/* {[
+                </span>
+                {[
                   { label: "LOCATION", val: "Panama, Sri Lanka" },
                   {
                     label: "UNIVERSITY",
@@ -78,13 +79,11 @@ export const WhoamiSection = () => {
                       {stat.val}
                     </span>
                   </div>
-                ))} */}
-                <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-                <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="pahasara-ridmaka" data-version="v1"><a className="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/pahasara-ridmaka?trk=profile-badge">Pahasara Ridmaka</a></div>
-              
-                  
+                ))}
               </div>
+              
             </div>
+            
 
             {/* Tech Stack Grid */}
             <div className="md:col-span-8 border-2 border-[#1b1b1b] p-6 bg-white shadow-[8px_8px_0px_0px_#bd00ff]">

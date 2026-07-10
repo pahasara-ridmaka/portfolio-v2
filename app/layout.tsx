@@ -20,7 +20,8 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Portfolio | Pahasara Ridmaka",
-  description: "Aspiring Data Engineer and Software Developer | Pahasara Ridmaka",
+  description:
+    "Aspiring Data Engineer and Software Developer | Pahasara Ridmaka",
 };
 
 export default function RootLayout({
@@ -33,12 +34,14 @@ export default function RootLayout({
       lang="en"
       className={`${anton.variable} ${archivo.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}
+      <body className="min-h-full flex flex-col">
+        {children}
 
-        <link 
-          rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap" 
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap"
         />
+       
       </body>
     </html>
   );

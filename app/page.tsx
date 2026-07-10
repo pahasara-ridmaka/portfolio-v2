@@ -164,6 +164,7 @@ export default function DevArchitect() {
 01001101 01000101`}
           </pre>
         </div>
+        
       </div>
       
     </main>
