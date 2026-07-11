@@ -4,7 +4,7 @@ A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Overview
 
-This project presents Pahasara Ridmaka's profile, featured projects, and certifications in a modern single-page layout with section-based navigation.
+This project presents profile, featured projects, and certifications in a modern single-page layout with section-based navigation.
 
 ## Features
 
