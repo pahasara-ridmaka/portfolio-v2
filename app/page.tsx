@@ -55,7 +55,7 @@ export default function DevArchitect() {
       ],
       imagePreview: "/images/projects/london-airbnb-listings-analytics.png",
       status: "ON GITHUB",
-      githubLink: "",
+      githubLink: "https://github.com/pahasara-ridmaka/london-airbnb-listings-analytics",
     },
     {
       id: "PRJ_04",
