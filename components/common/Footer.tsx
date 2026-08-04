@@ -4,13 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { slideUp } from "@/lib/animations";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { GlyphMatrix } from "../ui/glyph-matrix";
 
 function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <motion.footer
-      className="mt-24 pb-8"
+      className="mt-24 pb-8 relative"
       variants={slideUp}
       initial="hidden"
       animate="visible"
@@ -18,11 +19,15 @@ function Footer() {
       <motion.hr variants={slideUp} className="border-zinc-800" />
 
       <motion.div
-        className="mt-8 flex flex-col items-center gap-6"
+        className="mt-8 flex flex-col items-center gap-6 "
         variants={slideUp}
       >
         {/* Social & nav links */}
+
+
+            <GlyphMatrix className="absolute rounded-xl inset-0 z-10"  fadeBottom={1}/>
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm">
+
           <Link
             href="https://github.com/pahasara-ridmaka"
             target="_blank"
