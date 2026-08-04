@@ -22,7 +22,7 @@ function Footer() {
         variants={slideUp}
       >
         {/* Social & nav links */}
-        <div className="flex items-center gap-6 text-sm">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm">
           <Link
             href="https://github.com/pahasara-ridmaka"
             target="_blank"

@@ -59,7 +59,7 @@ function HeroSection() {
       animate="visible"
     >
       {/* Header row */}
-      <div className="flex justify-between items-start">
+      <div className="flex flex-wrap justify-between items-start gap-3">
         <motion.div className="flex flex-col items-end" variants={slideUp}>
           <h2 className="text-sm font-bold">
             <span>
@@ -93,7 +93,7 @@ function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="mt-4 gap-4 flex flex-row items-center justify-start"
+          className="mt-4 gap-4 flex flex-wrap flex-row items-center justify-start"
           variants={slideUp}
         >
           <Button
@@ -115,7 +115,7 @@ function HeroSection() {
   {projects.map((project, index) => (
     <motion.div
       key={index}
-      className="mt-8 font-light flex flex-row gap-4 items-center justify-between text-zinc-400 text-sm"
+      className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center sm:justify-between text-zinc-400 text-sm"
       variants={slideUp}
     >
       <span className="text-xs whitespace-nowrap">{project.date}</span>
@@ -125,13 +125,13 @@ function HeroSection() {
         </p>
         <p>{project.description}</p>
 
-        <div className="mt-4 flex flex-row gap-4">
+        <div className="mt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
           {/* Wrap all images with PhotoProvider */}
           <PhotoProvider>
             {project.images.map((img, imgIndex) => (
               <PhotoView key={imgIndex} src={img}>
                 <motion.div
-                  className="w-48 h-32 rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
+                  className="w-full sm:w-48 h-40 sm:h-32 rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
                   variants={cardHover}
                   initial="rest"
                   whileHover="hover"

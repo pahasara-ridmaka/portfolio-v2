@@ -120,13 +120,23 @@
   * {
     @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
-    }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    /* Prevent iOS auto font-size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     }
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior-y: none;
+    }
+  /* Improve touch targets on mobile */
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+  }
 }
 
 /* Custom scrollbar */

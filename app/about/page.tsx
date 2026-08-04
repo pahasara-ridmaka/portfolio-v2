@@ -62,14 +62,14 @@ function AboutPage() {
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
-            className="font-light flex flex-row gap-4 items-center justify-start text-zinc-400 text-sm py-2 transition-colors duration-200 hover:bg-zinc-800/30 rounded-lg px-2 -mx-2"
+            className="font-light flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center justify-start text-zinc-400 text-sm py-2 transition-colors duration-200 hover:bg-zinc-800/30 rounded-lg px-2 -mx-2"
             variants={slideUp}
             whileHover={{ x: 4 }}
             transition={{ duration: 0.2 }}
           >
             <span className="text-xs whitespace-nowrap">{cert.date}</span>
-            <div className="flex-1 flex flex-row gap-4 items-center justify-start">
-              <p className="text-white underline">
+            <div className="flex-1 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center justify-start">
+              <p className="text-white underline break-words">
                 <Link href={cert.href}>{cert.title}</Link>
               </p>
               <p className="italic underline whitespace-nowrap">
