@@ -113,7 +113,7 @@ function HeroSection() {
 
         {/* Projects */}
         <motion.div className="mt-16" variants={slideUp}>
-          <h3>Projects</h3>
+              <HyperText className="text-sm">Projects [DATA/WEB/SW]</HyperText>
 
           {projects.map((project, index) => (
             <motion.div

@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@/lib/animations";
+import { HyperText } from "@/components/ui/hyper-text";
 
 function AboutPage() {
   const certificates = [
@@ -27,7 +28,7 @@ function AboutPage() {
       initial="hidden"
       animate="visible"
     >
-      <motion.h2 variants={slideUp}>About Me</motion.h2>
+      <motion.h2 variants={slideUp}><HyperText className='text-sm'>About Me</HyperText></motion.h2>
 
       <motion.p
         className="text-xs text-zinc-400 leading-relaxed mt-8"
@@ -38,7 +39,7 @@ function AboutPage() {
 
       {/* Education Section */}
       <motion.div className="mt-8 mb-8" variants={slideUp}>
-        <h2 className="mt-8">Education</h2>
+        <h2 className="mt-8"><HyperText className='text-sm'>Education</HyperText></h2>
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
             <p className="text-sm font-light">
@@ -57,7 +58,7 @@ function AboutPage() {
       {/* Certifications Section */}
       <motion.div className="mt-8 mb-8" variants={slideUp}>
         <motion.h3 className="mb-3" variants={slideUp}>
-          Certificates
+          <HyperText className="text-sm">Certificates</HyperText> 
         </motion.h3>
         {certificates.map((cert, index) => (
           <motion.div
