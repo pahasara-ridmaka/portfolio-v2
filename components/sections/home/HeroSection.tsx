@@ -36,6 +36,7 @@ const projects = [
     images: [
       "/images/projects/london-airbnb-listings-analytics.png",
       "/images/projects/personal-portfolio.png",
+      "/images/projects/london-airbnb-listings-analytics.png",
     ],
   },
   {
@@ -109,48 +110,48 @@ function HeroSection() {
         </motion.div>
 
         {/* Projects */}
-<motion.div className="mt-16" variants={slideUp}>
-  <h3>Projects</h3>
+        <motion.div className="mt-16" variants={slideUp}>
+          <h3>Projects</h3>
 
-  {projects.map((project, index) => (
+          {projects.map((project, index) => (
     <motion.div
       key={index}
-      className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center sm:justify-between text-zinc-400 text-sm"
+      className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 text-sm"
       variants={slideUp}
     >
-      <span className="text-xs whitespace-nowrap">{project.date}</span>
-      <div className="flex-1 flex flex-col items-start gap-2">
-        <p className="text-white underline">
-          <Link href={""}>{project.title}</Link>
-        </p>
-        <p>{project.description}</p>
+      <span className="text-xs whitespace-nowrap shrink-0">{project.date}</span>
+      <div className="flex-1 min-w-0 flex flex-col items-start gap-2">
+                <p className="text-white underline">
+                  <Link href={""}>{project.title}</Link>
+                </p>
+                <p>{project.description}</p>
 
-        <div className="mt-4 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          {/* Wrap all images with PhotoProvider */}
-          <PhotoProvider>
-            {project.images.map((img, imgIndex) => (
-              <PhotoView key={imgIndex} src={img}>
-                <motion.div
-                  className="w-full sm:w-48 h-40 sm:h-32 rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
-                  variants={cardHover}
-                  initial="rest"
-                  whileHover="hover"
-                >
-                  <motion.img
-                    src={img}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    variants={imageHover}
-                  />
-                </motion.div>
-              </PhotoView>
-            ))}
-          </PhotoProvider>
-        </div>
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
+                <div className="mt-4 flex w-full max-w-full gap-4 overflow-x-auto px-1 pb-2 snap-x">
+                  {/* Wrap all images with PhotoProvider */}
+                  <PhotoProvider>
+                    {project.images.map((img, imgIndex) => (
+                      <PhotoView key={imgIndex} src={img}>
+                        <motion.div
+                          className="w-64 h-40 sm:w-48 sm:h-32 shrink-0 snap-start rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
+                          variants={cardHover}
+                          initial="rest"
+                          whileHover="hover"
+                        >
+                          <motion.img
+                            src={img}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                            variants={imageHover}
+                          />
+                        </motion.div>
+                      </PhotoView>
+                    ))}
+                  </PhotoProvider>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
 
       <div className="mt-16"></div>
