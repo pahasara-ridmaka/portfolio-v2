@@ -1,6 +1,7 @@
 "use client";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import { HyperText } from "@/components/ui/hyper-text";
 
 import { motion } from "framer-motion";
 import { NavigationMenuDemo } from "@/components/common/NavigationMenu";
@@ -62,14 +63,15 @@ function HeroSection() {
       {/* Header row */}
       <div className="flex flex-wrap justify-between items-start gap-3">
         <motion.div className="flex flex-col items-end" variants={slideUp}>
-          <h2 className="text-sm font-bold">
-            <span>
+          <div className="text-sm font-bold flex  jusitify-start items-end flex-col space-x-0.5">
+            <span className="flex items-center gap-2">
               {/* Live green dot */}
               <span className="inline-block w-3 h-3 mr-2 rounded-full bg-green-500 animate-pulse"></span>
+              <HyperText className="text-sm">Pahasara Ridmaka</HyperText>
             </span>
-            Pahasara Ridmaka
-          </h2>
-          <p className="text-zinc-600 text-xs">Python | Linux Enthusiast</p>
+          <p className="text-zinc-600 text-[0.65rem] -mt-2">Python | Linux Enthusiast</p>
+
+          </div>
         </motion.div>
         <motion.div variants={slideUp}>
           <NavigationMenuDemo />
@@ -114,13 +116,15 @@ function HeroSection() {
           <h3>Projects</h3>
 
           {projects.map((project, index) => (
-    <motion.div
-      key={index}
-      className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 text-sm"
-      variants={slideUp}
-    >
-      <span className="text-xs whitespace-nowrap shrink-0">{project.date}</span>
-      <div className="flex-1 min-w-0 flex flex-col items-start gap-2">
+            <motion.div
+              key={index}
+              className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 text-sm"
+              variants={slideUp}
+            >
+              <span className="text-xs whitespace-nowrap shrink-0">
+                {project.date}
+              </span>
+              <div className="flex-1 min-w-0 flex flex-col items-start gap-2">
                 <p className="text-white underline">
                   <Link href={""}>{project.title}</Link>
                 </p>
