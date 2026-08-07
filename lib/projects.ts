@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "The project ingests raw CSV data for users, products, orders, and promotions, then transforms it through a structured dbt pipeline. Staging models clean and prepare the source data, intermediate models handle complex joins and enrichments, and mart models publish clean dimension tables and a fact table optimized for analytics.",
       "All transformed data is served through an interactive Streamlit dashboard that enables business stakeholders to explore KPIs, product performance, and customer insights without writing SQL. The pipeline is designed to be reproducible, testable, and easily extensible for additional data sources or metrics.",
     ],
-    images: ["/images/projects/visit-panama-srilanka.png"],
+    images: ["/"],
     techStack: ["dbt", "DuckDB", "Python", "Streamlit", "SQL", "Pandas", "Plotly"],
     features: [
       "Modular dbt transformation pipeline with staging, intermediate, and mart layers",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
       "The pipeline leverages Apache Airflow for orchestration, scheduling daily extractions with built-in retry logic and failure handling. Using pdfplumber, the system intelligently parses tabular data from government-issued PDF documents, transforms it into structured formats, and loads it into a PostgreSQL data warehouse for analytical querying.",
       "Beyond the ETL engine, the project delivers an interactive Streamlit dashboard that visualizes disease trends and geographical distribution patterns. The dashboard integrates geospatial data (GeoJSON) to provide district-level outbreak mapping, enabling public health officials and researchers to make data-driven decisions.",
     ],
-    images: ["/images/projects/visit-panama-srilanka.png"],
+    images: ["/images/projects/gov-etl/gov-etl-1.jpg", "/images/projects/gov-etl/gov-etl-2.jpg", "/images/projects/gov-etl/gov-etl-3.jpg", "/images/projects/gov-etl/gov-etl-4.jpg", "/images/projects/gov-etl/gov-etl-5.jpg", "/images/projects/gov-etl/gov-etl-6.jpg", "/images/projects/gov-etl/gov-etl-7.jpg", ],
     techStack: ["Apache Airflow", "Docker", "PostgreSQL", "Python", "Streamlit", "SQLAlchemy", "pdfplumber", "GeoJSON"],
     features: [
       "Automated PDF scraping and parsing from government health portals",
@@ -93,7 +93,7 @@ export const projects: Project[] = [
       "Search and filter destinations",
     ],
     links: {
-      github: "https://github.com/pahasara-ridmaka",
+      github: "https://github.com/pahasara-ridmaka/visitPanamaSriLanaka",
     },
     category: "WEB",
   },
@@ -118,14 +118,42 @@ export const projects: Project[] = [
       "Documented KDD pipeline methodology",
     ],
     links: {
-      github: "https://github.com/pahasara-ridmaka",
+      github: "https://github.com/pahasara-ridmaka/london-airbnb-listings-analytics",
     },
     category: "DATA",
   },
+
+  {
+    slug: "personal-portfolio",
+    title: "Personal Portfolio Website",
+    date: "June - July 2026",
+    shortDescription:
+      "A minimal personal portfolio website built with Next.js, showcasing projects, certifications, and professional information.",
+    longDescription: [
+      "This personal portfolio website is a minimal, fast, and accessible showcase of my work, built with Next.js and Tailwind CSS. The site presents projects, certifications, and professional information in a clean, distraction-free layout.",
+      "The design emphasizes typography and whitespace, with subtle animations powered by Framer Motion to create a polished, modern feel. The site is fully responsive and optimized for performance.",
+      "This project also serves as a living example of my frontend development skills, demonstrating best practices in React, component architecture, and modern CSS.",
+    ],
+    images: ["/images/projects/portfolioV2.png"],
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn UI", "Base UI", "Magic UI"],
+    features: [
+      "Minimal, typography-focused design",
+      "Smooth page transitions with Framer Motion",
+      "Fully responsive layout",
+      "Project showcase with image galleries",
+      "Optimized for performance and accessibility",
+    ],
+    links: {
+      github: "https://github.com/pahasara-ridmaka/portfolio-v2",
+      demo: "http://pahasara.me",
+    },
+    category: "WEB",
+  },
+
   {
     slug: "file-organizer",
     title: "File Organizer Utility",
-    date: "March - April 2026",
+    date: "March - April 2024",
     shortDescription:
       "An application that automatically sorts and organizes cluttered download folders into category-specific subfolders.",
     longDescription: [
@@ -143,35 +171,9 @@ export const projects: Project[] = [
       "Cross-platform support",
     ],
     links: {
-      github: "https://github.com/pahasara-ridmaka",
+      github: "https://github.com/pahasara-ridmaka/file_organizer_utility",
     },
     category: "SW",
-  },
-  {
-    slug: "personal-portfolio",
-    title: "Personal Portfolio Website",
-    date: "June - July 2026",
-    shortDescription:
-      "A minimal personal portfolio website built with Next.js, showcasing projects, certifications, and professional information.",
-    longDescription: [
-      "This personal portfolio website is a minimal, fast, and accessible showcase of my work, built with Next.js and Tailwind CSS. The site presents projects, certifications, and professional information in a clean, distraction-free layout.",
-      "The design emphasizes typography and whitespace, with subtle animations powered by Framer Motion to create a polished, modern feel. The site is fully responsive and optimized for performance.",
-      "This project also serves as a living example of my frontend development skills, demonstrating best practices in React, component architecture, and modern CSS.",
-    ],
-    images: ["/images/projects/personal-portfolio.png"],
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    features: [
-      "Minimal, typography-focused design",
-      "Smooth page transitions with Framer Motion",
-      "Fully responsive layout",
-      "Project showcase with image galleries",
-      "Optimized for performance and accessibility",
-    ],
-    links: {
-      github: "https://github.com/pahasara-ridmaka/portfolio-v2",
-      demo: "/",
-    },
-    category: "WEB",
   },
 ];
 
