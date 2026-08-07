@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -41,31 +41,48 @@ function AboutPage() {
         </Link>
       </motion.div>
 
-      <motion.h2 variants={slideUp}><HyperText className='text-sm'>About Me</HyperText></motion.h2>
+      <motion.h2 variants={slideUp}>
+        <HyperText className="text-sm">About Me</HyperText>
+      </motion.h2>
 
       <motion.p
         className="text-xs text-zinc-400 leading-relaxed  text-justify"
         variants={slideUp}
       >
-        I'm Pahasara Ridmaka, from Panama—a coastal village in the Eastern Province of Sri Lanka.
-
+        <motion.img
+          src="profile.jpg"
+          alt="Pahasara Ridmaka"
+          className="w-24 h-auto rounded-xl object-contain mb-4 saturate-0 hover:saturate-75 transition-all duration-300"
+        />
+        
+        I'm Pahasara Ridmaka, from Panama—a coastal village in the Eastern
+        Province of Sri Lanka.
         <br />
         <br />
-My interest in technology started in 2014, back in my village school. I read an HTML5 book written in Sinhala and wrote my first HTML page. That was the beginning. Around the same time, I was reading Wijaya Pariganaka Magazine and trying out everything in it—experimenting, breaking things, fixing them. That's how I fell into development.
-<br />
-<br />
-I took IT as a subject for O/Ls and continued with it for A/Ls. In 2023, I got selected to study Physical Science-ICT at the University of Sri Jayewardenepura.
-<br />
-<br />
-Now I'm an ICT undergraduate working on full-stack development and data engineering. I build systems that are scalable, repeatable, and reliable.
-<br />
-<br />
-I also do graphics design. Still curious. Still building.
+        My interest in technology started in 2014, back in my village school. I
+        read an HTML5 book written in Sinhala and wrote my first HTML page. That
+        was the beginning. Around the same time, I was reading Wijaya Pariganaka
+        Magazine and trying out everything in it—experimenting, breaking things,
+        fixing them. That's how I fell into development.
+        <br />
+        <br />
+        I took IT as a subject for O/Ls and continued with it for A/Ls. In 2023,
+        I got selected to study Physical Science-ICT at the University of Sri
+        Jayewardenepura.
+        <br />
+        <br />
+        Now I'm an ICT undergraduate working on full-stack development and data
+        engineering. I build systems that are scalable, repeatable, and
+        reliable.
+        <br />
+        <br />I also do graphics design. Still curious. Still building.
       </motion.p>
 
       {/* Education Section */}
       <motion.div className="mt-8 mb-8" variants={slideUp}>
-        <h2 className="mt-8"><HyperText className='text-sm'>Education</HyperText></h2>
+        <h2 className="mt-8">
+          <HyperText className="text-sm">Education</HyperText>
+        </h2>
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
             <p className="text-sm font-light">
@@ -84,7 +101,7 @@ I also do graphics design. Still curious. Still building.
       {/* Certifications Section */}
       <motion.div className="mt-8 mb-8" variants={slideUp}>
         <motion.h3 className="mb-3" variants={slideUp}>
-          <HyperText className="text-sm">Certificates</HyperText> 
+          <HyperText className="text-sm">Certificates</HyperText>
         </motion.h3>
         {certificates.map((cert, index) => (
           <motion.div
