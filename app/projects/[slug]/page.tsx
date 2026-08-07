@@ -58,6 +58,7 @@ function ProjectDetailPage() {
         <PhotoProvider>
           <PhotoView src={project.images[0]}>
             <motion.div
+              data-sound="click"
               className="w-full aspect-video rounded-lg overflow-hidden bg-zinc-800 cursor-zoom-in"
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}

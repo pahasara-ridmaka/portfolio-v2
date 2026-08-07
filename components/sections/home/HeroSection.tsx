@@ -154,6 +154,7 @@ I also do graphics design
                     {project.images.map((img, imgIndex) => (
                       <PhotoView key={imgIndex} src={img}>
                         <motion.div
+                          data-sound="click"
                           className="w-64 h-40 sm:w-48 sm:h-32 shrink-0 snap-start rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
                           variants={cardHover}
                           initial="rest"
