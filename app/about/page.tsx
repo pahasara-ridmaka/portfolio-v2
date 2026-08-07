@@ -31,10 +31,23 @@ function AboutPage() {
       <motion.h2 variants={slideUp}><HyperText className='text-sm'>About Me</HyperText></motion.h2>
 
       <motion.p
-        className="text-xs text-zinc-400 leading-relaxed mt-8"
+        className="text-xs text-zinc-400 leading-relaxed mt-8 text-justify"
         variants={slideUp}
       >
-        Hello, I'm Pahasara Ridmaka!
+        I'm Pahasara Ridmaka, from Panama—a coastal village in the Eastern Province of Sri Lanka.
+
+        <br />
+        <br />
+My interest in technology started in 2014, back in my village school. I read an HTML5 book written in Sinhala and wrote my first HTML page. That was the beginning. Around the same time, I was reading Wijaya Pariganaka Magazine and trying out everything in it—experimenting, breaking things, fixing them. That's how I fell into development.
+<br />
+<br />
+I took IT as a subject for O/Ls and continued with it for A/Ls. In 2023, I got selected to study Physical Science-ICT at the University of Sri Jayewardenepura.
+<br />
+<br />
+Now I'm an ICT undergraduate working on full-stack development and data engineering. I build systems that are scalable, repeatable, and reliable.
+<br />
+<br />
+I also do graphics design. Still curious. Still building.
       </motion.p>
 
       {/* Education Section */}

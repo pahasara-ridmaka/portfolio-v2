@@ -24,11 +24,11 @@ export function NavigationMenuDemo() {
           <NavigationMenuItem>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} transition-transform duration-200 hover:scale-110 active:scale-95`}
-              render={<Link href="/docs"><FaGithub/></Link>}
+              render={<a href="https://github.com/pahasara-ridmaka" target="_blank" rel="noopener noreferrer"><FaGithub/></a>}
             />
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} transition-transform duration-200 hover:scale-110 active:scale-95`}
-              render={<Link href="/docs"><FaLinkedin/></Link>}
+              render={<a href="https://www.linkedin.com/in/pahasara-ridmaka" target="_blank" rel="noopener noreferrer"><FaLinkedin/></a>}
             />
           </NavigationMenuItem>
 

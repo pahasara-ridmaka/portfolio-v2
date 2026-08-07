@@ -30,24 +30,39 @@ const imageHover: Variants = {
 
 const projects = [
   {
-    date: "March - April 2026",
-    title: "Dengue ETL & Health Data Analytic Dashboard",
+    date: "April - May 2026",
+    title: "visit PANAMA SRILANKA",
     description:
-      "This is a data analytics project for analyzing Airbnb listings in London.",
+      "A full-stack tourism web app for Panama, Sri Lanka. Features interactive destination guides, secure user authentication, and tour booking workflows.",
     images: [
-      "/images/projects/london-airbnb-listings-analytics.png",
-      "/images/projects/personal-portfolio.png",
+      "/images/projects/visit-panama-srilanka.png",
+    ],
+  },
+  {
+    date: "March - April 2026",
+    title: "LONDON AIRBNB LISTINGS ANALYTICS",
+    description:
+      "A Python-based KDD pipeline analyzing 28,480 London Airbnb listings for ICT 333 1.5 (USJ). Features custom data extraction and cleansing scripts to ensure reproducibility and statistical integrity.",
+    images: [
       "/images/projects/london-airbnb-listings-analytics.png",
     ],
   },
   {
     date: "March - April 2026",
-    title: "London Airbnb Listings Analytics",
+    title: "File Organizer Utility",
     description:
-      "This is a data analytics project for analyzing Airbnb listings in London.",
+      "An application that automatically sorts and organizes cluttered download folders into category-specific subfolders.",
     images: [
-      "/images/projects/london-airbnb-listings-analytics.png",
-      "/images/projects/visit-panama-srilanka.png",
+      "/images/projects/file-organizer.png",
+    ],
+  },
+{
+    date: "June - July 2026",
+    title: "Personal Portfolio Website",
+    description:
+      "A minimal personal portfolio website built with Next.js, showcasing projects, certifications, and professional information.",
+    images: [
+      "/images/projects/personal-portfolio.png",
     ],
   },
 ];
@@ -84,15 +99,10 @@ function HeroSection() {
           className="text-sm text-zinc-400 leading-relaxed text-justify"
           variants={slideUp}
         >
-          Hi, I'm Pahasara Ridmaka, and I am an ICT graduate with a rigorous
-          foundation in Mathematics and Physics.
-          <br />
-          <br />I am highly proficient in Python, SQL, OOP, and core Software
-          Architecture principles, blending structured engineering with a strong
-          understanding of the SDLC and Agile methodologies. Additionally, I
-          leverage my creative graphic design skills to ensure that the highly
-          optimized digital solutions I build are also clean, modern, and
-          visually intuitive.
+          I'm an ICT undergraduate working on full-stack development and data engineering. I build systems that are scalable, repeatable, and reliable.
+
+I also do graphics design
+          
         </motion.p>
 
         <motion.div
