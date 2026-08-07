@@ -54,15 +54,14 @@ function AboutPage() {
           alt="Pahasara Ridmaka"
           className="w-24 h-auto rounded-xl object-contain mb-4 saturate-0 hover:saturate-75 transition-all duration-300"
         />
-        
-        I'm Pahasara Ridmaka, from Panama—a coastal village in the Eastern
+        I'm Pahasara Ridmaka, from Panama, a coastal village in the Eastern
         Province of Sri Lanka.
         <br />
         <br />
         My interest in technology started in 2014, back in my village school. I
         read an HTML5 book written in Sinhala and wrote my first HTML page. That
         was the beginning. Around the same time, I was reading Wijaya Pariganaka
-        Magazine and trying out everything in it—experimenting, breaking things,
+        Magazine and trying out everything in it experimenting, breaking things,
         fixing them. That's how I fell into development.
         <br />
         <br />
@@ -75,12 +74,13 @@ function AboutPage() {
         engineering. I build systems that are scalable, repeatable, and
         reliable.
         <br />
-        <br />I also do graphics design. Still curious. Still building.
+        <br />I also do graphics design. <br /> <br />
+        Still curious. Still building.
       </motion.p>
 
       {/* Education Section */}
-      <motion.div className="mt-8 mb-8" variants={slideUp}>
-        <h2 className="mt-8">
+      <motion.div className="mt-4 mb-4" variants={slideUp}>
+        <h2>
           <HyperText className="text-sm">Education</HyperText>
         </h2>
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
@@ -93,13 +93,35 @@ function AboutPage() {
             </p>
           </div>
         </div>
+        <span className="text-xs font-light text-zinc-400">2023-2026</span>
+
+        <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
+          <div className="w-full">
+            <p className="text-sm font-light">B/Dharmadutha College, Badulla</p>
+            <p className="italic text-xs font-extralight">
+              Physical Science Stream (Combined Maths, ICT, Physics)
+            </p>
+          </div>
+        </div>
         <span className="text-xs font-light text-zinc-400">2017-2020</span>
+
+        <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
+          <div className="w-full">
+            <p className="text-sm font-light">
+              Am/Panama Maha Vidyalaya, Panama
+            </p>
+            <p className="italic text-xs font-extralight">
+              Primary and Secondary Education
+            </p>
+          </div>
+        </div>
+        <span className="text-xs font-light text-zinc-400">2006-2016</span>
       </motion.div>
 
       <motion.hr variants={slideUp} className="border-zinc-800" />
 
       {/* Certifications Section */}
-      <motion.div className="mt-8 mb-8" variants={slideUp}>
+      <motion.div className="mt-4 mb-4" variants={slideUp}>
         <motion.h3 className="mb-3" variants={slideUp}>
           <HyperText className="text-sm">Certificates</HyperText>
         </motion.h3>
