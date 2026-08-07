@@ -8,23 +8,94 @@ import { HyperText } from "@/components/ui/hyper-text";
 import { FaArrowLeft } from "react-icons/fa";
 import { Highlighter } from "@/components/ui/highlighter";
 
-
-
-
 function AboutPage() {
   const [showHighlight, setShowHighlight] = useState(false);
 
+  const achievements = [
+    {
+      date: "Sep 2024",
+      title: "HackX 9.0 Finalist",
+      provider: "IMSSA, University of Kelaniya",
+      href: "",
+    },
+  ]
+
   const certificates = [
     {
-      date: "March - April 2026",
+      date: "Jul 2026",
       title: "Introduction to dbt",
       provider: "DataCamp",
       href: "",
     },
     {
-      date: "March - April 2026",
-      title: "Dengue ETL & Health Data Analytic Dashboard",
+      date: "Jul 2026",
+      title: "Associate Data Engineer",
       provider: "DataCamp",
+      href: "",
+    },
+
+    {
+      date: "Jul 2026",
+      title: "Introduction to PySpark",
+      provider: "DataCamp",
+      href: "",
+    },
+    {
+      date: "Jul 2026",
+      title: "Intermediate Docker",
+      provider: "DataCamp",
+      href: "",
+    },
+
+    {
+      date: "Jul 2026",
+      title: "Introduction to Apache Airflow in Python",
+      provider: "DataCamp",
+      href: "",
+    },
+    {
+      date: "Jul 2026",
+      title: "Introduction to Power BI",
+      provider: "DataCamp",
+      href: "",
+    },
+    {
+      date: "Jun 2026",
+      title:
+        "AWS Academy Graduate - Machine Learning Foundations - Training Badge",
+      provider: "AWS Academy",
+      href: "",
+    },
+    {
+      date: "Jun 2026",
+      title: "AWS Academy Graduate - Data Engineering - Training Badge",
+      provider: "AWS Academy",
+      href: "",
+    },
+
+    {
+      date: "Jun 2026",
+      title: "AWS Academy Graduate - Cloud Foundations - Training Badge",
+      provider: "AWS Academy",
+      href: "",
+    },
+    {
+      date: "Jun 2025",
+      title: "Introduction to Generative AI",
+      provider: "Google",
+      href: "",
+    },
+
+    {
+      date: "Sep 2024",
+      title: "Postman API Fundamentals Student Expert",
+      provider: "Postman",
+      href: "",
+    },
+    {
+      date: "Dec 2023",
+      title: "JavaScript Algorithm and Data Structure",
+      provider: "freeCodeCamp",
       href: "",
     },
   ];
@@ -69,8 +140,7 @@ function AboutPage() {
         ) : (
           <span className="inline-block">Pahasara Ridmaka</span>
         )}
-        , from Panama, a coastal village in the Eastern
-        Province of Sri Lanka.
+        , from Panama, a coastal village in the Eastern Province of Sri Lanka.
         <br />
         <br />
         My interest in technology started in 2014, back in my village school. I
@@ -135,6 +205,33 @@ function AboutPage() {
 
       <motion.hr variants={slideUp} className="border-zinc-800" />
 
+      
+      {/* Achievements Section */}
+      <motion.div className="mt-4 mb-4" variants={slideUp}>
+        <motion.h3 className="mb-3" variants={slideUp}>
+          <HyperText className="text-sm">Achievements</HyperText>
+        </motion.h3>
+        {achievements.map((achievement, index) => (
+          <motion.div
+            key={index}
+            className="font-light flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center justify-start text-zinc-400 text-sm py-2 transition-colors duration-200 hover:bg-zinc-800/30 rounded-lg px-2 -mx-2"
+            variants={slideUp}
+            whileHover={{ x: 4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <span className="text-xs whitespace-nowrap">{achievement.date}</span>
+            <div className="flex-1 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center justify-start">
+              <p className="text-white underline wrap-break-word">
+                <Link href={achievement.href}>{achievement.title}</Link>
+              </p>
+              <p className="italic  whitespace-nowrap">by {achievement.provider}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.hr variants={slideUp} className="border-zinc-800" />
+
       {/* Certifications Section */}
       <motion.div className="mt-4 mb-4" variants={slideUp}>
         <motion.h3 className="mb-3" variants={slideUp}>
@@ -153,9 +250,7 @@ function AboutPage() {
               <p className="text-white underline wrap-break-word">
                 <Link href={cert.href}>{cert.title}</Link>
               </p>
-              <p className="italic underline whitespace-nowrap">
-                by {cert.provider}
-              </p>
+              <p className="italic  whitespace-nowrap">by {cert.provider}</p>
             </div>
           </motion.div>
         ))}
