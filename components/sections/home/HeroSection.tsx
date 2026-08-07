@@ -14,6 +14,7 @@ import type { Variants } from "framer-motion";
 import { useState } from "react";
 
 import { Highlighter } from "@/components/ui/highlighter";
+import ShimmeringText from "@/components/ui/shimmering-text";
 
 // Hover variants for project cards
 const cardHover: Variants = {
@@ -45,17 +46,6 @@ function HeroSection() {
       {/* Header row */}
       <div className="flex flex-wrap justify-between items-start gap-3">
         <motion.div className="flex flex-col items-end" variants={slideUp}>
-          {/* <div className="text-sm font-bold flex  jusitify-start items-end flex-col space-x-0.5"> */}
-          {/* <span className="flex items-center gap-2"> */}
-          {/* Live green dot */}
-          {/* <span className="inline-block w-3 h-3 mr-2 rounded-full bg-green-500 animate-pulse"></span>
-              <HyperText className="text-sm">Pahasara Ridmaka</HyperText>
-            </span>
-            <p className="text-zinc-600 text-[0.65rem] -mt-2">
-              Python | Linux Enthusiast
-            </p>
-          </div> */}
-
           <motion.img
             src="profile.jpg"
             alt="Pahasara Ridmaka"
@@ -68,30 +58,7 @@ function HeroSection() {
       </div>
 
       {/* Bio section */}
-      <div className="">
-        {/* <motion.p
-          className="text-sm text-zinc-400 leading-relaxed text-justify"
-          variants={slideUp}
-        >
-          I'm an ICT undergraduate working on full-stack development and data engineering. I build systems that are scalable, repeatable, and reliable.
-
-I also do graphics design
-          
-        </motion.p> */}
-          {/* <div className="w-full flex flex-col items-start justify-start">
-            <span className="flex items-center gap-2">
-              <span className="inline-block w-3 h-3 mr-2 rounded-full bg-green-500 animate-pulse"></span>
-              <div className="flex flex-col justify-end items-end">
-                <HyperText className="text-sm">Pahasara Ridmaka</HyperText>
-                <p className="text-zinc-600 text-[0.65rem] -mt-2 ">
-                  Python | Linux Enthusiast
-                </p>
-              </div>
-            </span>
-          </div> */}
-
-
-
+      <div>
         <motion.p
           className="text-xs text-zinc-400 leading-relaxed  text-justify mt-4"
           variants={slideUp}
@@ -108,12 +75,27 @@ I also do graphics design
           , from Panama, a coastal village in the Eastern Province of Sri Lanka.
           <br />
           <br />
-           I'm a recent ICT graduate with a strong foundation in math and physics, and hands-on experience in full-stack development and data engineering, building with React, FastAPI, PostgreSQL, Airflow, and dbt. I'm a Linux enthusiast who loves open-source and scalable systems, and I'm excited to bring my analytical mindset to a collaborative engineering role.
-       
+          I'm a recent ICT graduate with a strong foundation in math and
+          physics, and hands-on experience in full-stack development and data
+          engineering, building with React, FastAPI, PostgreSQL, Airflow, and
+          dbt.
           <br />
-          <br />I also do graphics design. <br /> <br />
-          Still curious. Still building.
+          <br /> I'm a Linux enthusiast who loves open-source and scalable
+          systems, and I'm excited to bring my analytical mindset to a
+          collaborative engineering role.
+          <br />
+          <br />
         </motion.p>
+
+        <motion.div
+          className="mt-4 flex flex-wrap gap-2 items-center  text-sm"
+          variants={slideUp}
+        >
+          <HyperText className="text-sm">current status:</HyperText>
+          <ShimmeringText text="Looking for an internship or entry-level position" />
+        </motion.div>
+
+        {/* Download CV button */}
 
         <motion.div
           className="my-8 gap-4 flex flex-wrap flex-row items-center "
@@ -126,10 +108,9 @@ I also do graphics design
 
         <motion.hr variants={slideUp} className="border-zinc-800" />
 
-        
         {/* Projects */}
         <motion.div className="mt-8" variants={slideUp}>
-          <HyperText className="text-sm">Projects [DATA/WEB/SW]</HyperText>
+          <HyperText className="text-sm">Projects</HyperText>
 
           {projects.map((project, index) => (
             <motion.div
