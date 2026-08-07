@@ -44,7 +44,7 @@ function AboutPage() {
       <motion.h2 variants={slideUp}><HyperText className='text-sm'>About Me</HyperText></motion.h2>
 
       <motion.p
-        className="text-xs text-zinc-400 leading-relaxed mt-8 text-justify"
+        className="text-xs text-zinc-400 leading-relaxed  text-justify"
         variants={slideUp}
       >
         I'm Pahasara Ridmaka, from Panama—a coastal village in the Eastern Province of Sri Lanka.
