@@ -92,7 +92,7 @@ function HeroSection() {
           variants={slideUp}
         >
           <HyperText className="text-sm">current status:</HyperText>
-          <ShimmeringText text="Looking for an internship or entry-level position" />
+          <ShimmeringText className="text-lg" text="LOOKING FOR OPPORTUNITIES" />
         </motion.div>
 
         {/* Download CV button */}
