@@ -8,6 +8,7 @@ import { NavigationMenuDemo } from "@/components/common/NavigationMenu";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { slideUp, staggerContainer } from "@/lib/animations";
+import { projects } from "@/lib/projects";
 import type { Variants } from "framer-motion";
 
 // Hover variants for project cards
@@ -27,45 +28,6 @@ const imageHover: Variants = {
     transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
   },
 };
-
-const projects = [
-  {
-    date: "April - May 2026",
-    title: "visit PANAMA SRILANKA",
-    description:
-      "A full-stack tourism web app for Panama, Sri Lanka. Features interactive destination guides, secure user authentication, and tour booking workflows.",
-    images: [
-      "/images/projects/visit-panama-srilanka.png",
-    ],
-  },
-  {
-    date: "March - April 2026",
-    title: "LONDON AIRBNB LISTINGS ANALYTICS",
-    description:
-      "A Python-based KDD pipeline analyzing 28,480 London Airbnb listings for ICT 333 1.5 (USJ). Features custom data extraction and cleansing scripts to ensure reproducibility and statistical integrity.",
-    images: [
-      "/images/projects/london-airbnb-listings-analytics.png",
-    ],
-  },
-  {
-    date: "March - April 2026",
-    title: "File Organizer Utility",
-    description:
-      "An application that automatically sorts and organizes cluttered download folders into category-specific subfolders.",
-    images: [
-      "/images/projects/file-organizer.png",
-    ],
-  },
-{
-    date: "June - July 2026",
-    title: "Personal Portfolio Website",
-    description:
-      "A minimal personal portfolio website built with Next.js, showcasing projects, certifications, and professional information.",
-    images: [
-      "/images/projects/personal-portfolio.png",
-    ],
-  },
-];
 
 function HeroSection() {
   return (
@@ -136,9 +98,9 @@ I also do graphics design
               </span>
               <div className="flex-1 min-w-0 flex flex-col items-start gap-2">
                 <p className="text-white underline">
-                  <Link href={""}>{project.title}</Link>
+                  <Link href={`/projects/${project.slug}`}>{project.title}</Link>
                 </p>
-                <p>{project.description}</p>
+                <p>{project.shortDescription}</p>
 
                 <div className="mt-4 flex w-full max-w-full gap-4 overflow-x-auto px-1 pb-2 snap-x">
                   {/* Wrap all images with PhotoProvider */}

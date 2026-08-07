@@ -35,6 +35,13 @@ export function NavigationMenuDemo() {
           <NavigationMenuItem>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} transition-all duration-200 hover:scale-105 active:scale-95`}
+              render={<Link href="/projects">Projects</Link>}
+            />
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              className={`${navigationMenuTriggerStyle()} transition-all duration-200 hover:scale-105 active:scale-95`}
               render={<Link href="/about">About</Link>}
             />
           </NavigationMenuItem>
