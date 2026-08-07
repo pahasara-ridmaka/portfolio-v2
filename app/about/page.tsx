@@ -1,13 +1,19 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@/lib/animations";
 import { HyperText } from "@/components/ui/hyper-text";
 import { FaArrowLeft } from "react-icons/fa";
+import { Highlighter } from "@/components/ui/highlighter";
+
+
+
 
 function AboutPage() {
+  const [showHighlight, setShowHighlight] = useState(false);
+
   const certificates = [
     {
       date: "March - April 2026",
@@ -48,13 +54,22 @@ function AboutPage() {
       <motion.p
         className="text-xs text-zinc-400 leading-relaxed  text-justify"
         variants={slideUp}
+        onAnimationComplete={() => setShowHighlight(true)}
       >
         <motion.img
           src="profile.jpg"
           alt="Pahasara Ridmaka"
           className="w-24 h-auto rounded-xl object-contain mb-4 saturate-0 hover:saturate-75 transition-all duration-300"
         />
-        I'm Pahasara Ridmaka, from Panama, a coastal village in the Eastern
+        I'm{" "}
+        {showHighlight ? (
+          <Highlighter action="highlight" isView={true} animationDuration={0}>
+            Pahasara Ridmaka
+          </Highlighter>
+        ) : (
+          <span className="inline-block">Pahasara Ridmaka</span>
+        )}
+        , from Panama, a coastal village in the Eastern
         Province of Sri Lanka.
         <br />
         <br />
@@ -135,7 +150,7 @@ function AboutPage() {
           >
             <span className="text-xs whitespace-nowrap">{cert.date}</span>
             <div className="flex-1 flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center justify-start">
-              <p className="text-white underline break-words">
+              <p className="text-white underline wrap-break-word">
                 <Link href={cert.href}>{cert.title}</Link>
               </p>
               <p className="italic underline whitespace-nowrap">
