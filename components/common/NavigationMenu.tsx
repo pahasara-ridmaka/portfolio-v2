@@ -7,11 +7,9 @@ import { slideUp } from "@/lib/animations"
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
@@ -29,13 +27,6 @@ export function NavigationMenuDemo() {
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} transition-transform duration-200 hover:scale-110 active:scale-95`}
               render={<a href="https://www.linkedin.com/in/pahasara-ridmaka" target="_blank" rel="noopener noreferrer"><FaLinkedin/></a>}
-            />
-          </NavigationMenuItem>
-
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} transition-all duration-200 hover:scale-105 active:scale-95`}
-              render={<Link href="/projects">Projects</Link>}
             />
           </NavigationMenuItem>
 

@@ -36,7 +36,7 @@ function ProjectDetailPage() {
           className="inline-flex items-center gap-2 text-xs text-zinc-400 hover:text-white transition-colors duration-200"
         >
           <FaArrowLeft className="w-3 h-3" />
-          Back to projects
+          Back to home
         </Link>
       </motion.div>
 
