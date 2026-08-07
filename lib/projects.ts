@@ -15,6 +15,63 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+ {
+    slug: "dbt-e-commerce-data-transformation-pipeline",
+    title: "dbt E-Commerce Data Transformation Pipeline",
+    date: "July - August 2026",
+    shortDescription:
+      "An analytics warehouse for e-commerce data using dbt and DuckDB, with a Streamlit dashboard for visualizing transformed metrics and insights.",
+    longDescription: [
+      "The E-Commerce Data Transformation Pipeline is a complete analytics engineering project that builds a dimensional data warehouse for e-commerce operations. It demonstrates the modern data stack approach by combining dbt for transformation logic and DuckDB for lightweight, file-based analytical storage.",
+      "The project ingests raw CSV data for users, products, orders, and promotions, then transforms it through a structured dbt pipeline. Staging models clean and prepare the source data, intermediate models handle complex joins and enrichments, and mart models publish clean dimension tables and a fact table optimized for analytics.",
+      "All transformed data is served through an interactive Streamlit dashboard that enables business stakeholders to explore KPIs, product performance, and customer insights without writing SQL. The pipeline is designed to be reproducible, testable, and easily extensible for additional data sources or metrics.",
+    ],
+    images: ["/images/projects/visit-panama-srilanka.png"],
+    techStack: ["dbt", "DuckDB", "Python", "Streamlit", "SQL", "Pandas", "Plotly"],
+    features: [
+      "Modular dbt transformation pipeline with staging, intermediate, and mart layers",
+      "Automated data quality tests and validation using dbt expectations",
+      "Interactive Streamlit dashboard for exploring transformed analytics",
+      "CSV data generation for reproducible development and testing",
+      "Lightweight analytics warehouse using DuckDB with zero infrastructure overhead",
+      "Dimensional modeling with conformed dimensions and a fact table"
+    ],
+    links: {
+      github: "https://github.com/pahasara-ridmaka/dbt-e-commerce-data-transformation-pipeline",
+    },
+    category: "DATA",
+  },
+
+{
+    slug: "gov-dengue-etl-pipeline",
+    title: "GOV-DENGUE-ETL: Automated Dengue Data Pipeline",
+    date: "June - July 2026",
+    shortDescription:
+      "A containerized end-to-end ETL pipeline that orchestrates the extraction, transformation, and loading of public health data for Dengue outbreaks in Sri Lanka, featuring interactive geospatial dashboards.",
+    longDescription: [
+      "GOV-DENGUE-ETL is a production-grade data engineering solution designed to automate the collection and processing of daily Dengue outbreak data from Sri Lanka's National Dengue Control Unit. The system addresses the challenge of manually processing PDF-based health bulletins by implementing a fully automated, containerized ETL pipeline.",
+      "The pipeline leverages Apache Airflow for orchestration, scheduling daily extractions with built-in retry logic and failure handling. Using pdfplumber, the system intelligently parses tabular data from government-issued PDF documents, transforms it into structured formats, and loads it into a PostgreSQL data warehouse for analytical querying.",
+      "Beyond the ETL engine, the project delivers an interactive Streamlit dashboard that visualizes disease trends and geographical distribution patterns. The dashboard integrates geospatial data (GeoJSON) to provide district-level outbreak mapping, enabling public health officials and researchers to make data-driven decisions.",
+    ],
+    images: ["/images/projects/visit-panama-srilanka.png"],
+    techStack: ["Apache Airflow", "Docker", "PostgreSQL", "Python", "Streamlit", "SQLAlchemy", "pdfplumber", "GeoJSON"],
+    features: [
+      "Automated PDF scraping and parsing from government health portals",
+      "Scheduled daily ETL workflows with Apache Airflow orchestration",
+      "Idempotent data processing with raw and processed data lake tiers",
+      "Interactive Streamlit dashboard with geospatial outbreak visualizations",
+      "Containerized deployment using Docker Compose for reproducibility",
+      "Comprehensive logging and monitoring for pipeline observability",
+      "SQLAlchemy ORM for clean database operations and schema management",
+      "GeoJSON integration for district-level disease mapping"
+    ],
+    links: {
+      github: "https://github.com/pahasara-ridmaka/gov-dengue-etl",
+    },
+    category: "DATA",
+  },
+
+
   {
     slug: "visit-panama-srilanka",
     title: "visit PANAMA SRILANKA",
