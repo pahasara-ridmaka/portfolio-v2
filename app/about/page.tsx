@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { slideUp, staggerContainer } from "@/lib/animations";
 import { HyperText } from "@/components/ui/hyper-text";
+import { FaArrowLeft } from "react-icons/fa";
 
 function AboutPage() {
   const certificates = [
@@ -27,7 +28,19 @@ function AboutPage() {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
+      className="flex flex-col gap-8"
     >
+      {/* Back link */}
+      <motion.div variants={slideUp}>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-xs text-zinc-400 hover:text-white transition-colors duration-200"
+        >
+          <FaArrowLeft className="w-3 h-3" />
+          Back to home
+        </Link>
+      </motion.div>
+
       <motion.h2 variants={slideUp}><HyperText className='text-sm'>About Me</HyperText></motion.h2>
 
       <motion.p
