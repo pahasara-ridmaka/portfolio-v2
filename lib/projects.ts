@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "The project ingests raw CSV data for users, products, orders, and promotions, then transforms it through a structured dbt pipeline. Staging models clean and prepare the source data, intermediate models handle complex joins and enrichments, and mart models publish clean dimension tables and a fact table optimized for analytics.",
       "All transformed data is served through an interactive Streamlit dashboard that enables business stakeholders to explore KPIs, product performance, and customer insights without writing SQL. The pipeline is designed to be reproducible, testable, and easily extensible for additional data sources or metrics.",
     ],
-    images: ["/"],
+    images: ["/images/projects/dbt-e-commerce-data-trans/1.png", "/images/projects/dbt-e-commerce-data-trans/2.png", "/images/projects/dbt-e-commerce-data-trans/3.png", "/images/projects/dbt-e-commerce-data-trans/4.png", "/images/projects/dbt-e-commerce-data-trans/5.png", "/images/projects/dbt-e-commerce-data-trans/6.png", "/images/projects/dbt-e-commerce-data-trans/7.png", "/images/projects/dbt-e-commerce-data-trans/8.png",],
     techStack: ["dbt", "DuckDB", "Python", "Streamlit", "SQL", "Pandas", "Plotly"],
     features: [
       "Modular dbt transformation pipeline with staging, intermediate, and mart layers",
