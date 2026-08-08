@@ -33,7 +33,7 @@ function ProjectDetailPage() {
       <motion.div variants={slideUp}>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs text-zinc-400 hover:text-white transition-colors duration-200"
+          className="inline-flex items-center gap-2 text-md text-zinc-400 hover:text-white transition-colors duration-200"
         >
           <FaArrowLeft className="w-3 h-3" />
           Back to home
@@ -78,7 +78,7 @@ function ProjectDetailPage() {
         {project.longDescription.map((paragraph, index) => (
           <p
             key={index}
-            className="text-sm text-zinc-400 leading-relaxed text-justify"
+            className=" text-zinc-400 leading-relaxed text-justify"
           >
             {paragraph}
           </p>
@@ -94,7 +94,7 @@ function ProjectDetailPage() {
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-3 py-1 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
+              className="text-sm px-3 py-1 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
             >
               {tech}
             </span>
@@ -111,7 +111,7 @@ function ProjectDetailPage() {
           {project.features.map((feature, index) => (
             <li
               key={index}
-              className="flex items-start gap-2 text-sm text-zinc-400"
+              className="flex items-start gap-2  text-zinc-400"
             >
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-zinc-500 shrink-0" />
               {feature}
@@ -128,9 +128,9 @@ function ProjectDetailPage() {
               href={project.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
             >
-              <FaGithub className="w-3.5 h-3.5" />
+              <FaGithub className="w-4.5 h-4.5" />
               GitHub
             </a>
           )}
@@ -139,9 +139,9 @@ function ProjectDetailPage() {
               href={project.links.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 hover:bg-zinc-700 hover:text-white transition-colors duration-200"
             >
-              <FaExternalLinkAlt className="w-3 h-3" />
+              <FaExternalLinkAlt className="w-4 h-4" />
               Live Demo
             </a>
           )}

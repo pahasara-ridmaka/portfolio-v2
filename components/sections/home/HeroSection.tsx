@@ -101,7 +101,7 @@ function HeroSection() {
           className="my-8 gap-4 flex flex-wrap flex-row items-center "
           variants={slideUp}
         >
-          <Button className="rounded-full" variant="default" size="sm">
+          <Button className="rounded-full" variant="default" >
             <a href="files/resume.pdf">Download CV</a>
           </Button>
         </motion.div>
