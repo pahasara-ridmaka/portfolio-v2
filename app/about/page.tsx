@@ -123,7 +123,7 @@ function AboutPage() {
       </motion.h2>
 
       <motion.p
-        className="text-xs text-zinc-400 leading-relaxed  text-justify"
+        className=" text-zinc-400 leading-relaxed  text-justify"
         variants={slideUp}
         onAnimationComplete={() => setShowHighlight(true)}
       >
@@ -170,10 +170,10 @@ function AboutPage() {
         </h2>
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className="text-sm font-light">
+            <p className=" font-light">
               Univerisity of Sri Jayewardenepura
             </p>
-            <p className="italic text-xs font-extralight">
+            <p className="italic text-sm font-extralight">
               BSc. Physical Science - ICT
             </p>
           </div>
@@ -182,8 +182,8 @@ function AboutPage() {
 
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className="text-sm font-light">B/Dharmadutha College, Badulla</p>
-            <p className="italic text-xs font-extralight">
+            <p className=" font-light">B/Dharmadutha College, Badulla</p>
+            <p className="italic text-sm font-extralight">
               Physical Science Stream (Combined Maths, ICT, Physics)
             </p>
           </div>
@@ -192,10 +192,10 @@ function AboutPage() {
 
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className="text-sm font-light">
+            <p className=" font-light">
               Am/Panama Maha Vidyalaya, Panama
             </p>
-            <p className="italic text-xs font-extralight">
+            <p className="italic text-sm font-extralight">
               Primary and Secondary Education
             </p>
           </div>

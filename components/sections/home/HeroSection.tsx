@@ -60,7 +60,7 @@ function HeroSection() {
       {/* Bio section */}
       <div>
         <motion.p
-          className="text-xs text-zinc-400 leading-relaxed  text-justify mt-4"
+          className="text-zinc-400 leading-relaxed  text-justify mt-4 "
           variants={slideUp}
           onAnimationComplete={() => setShowHighlight(true)}
         >
@@ -115,7 +115,7 @@ function HeroSection() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 text-sm"
+              className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 "
               variants={slideUp}
             >
               <span className="text-xs whitespace-nowrap shrink-0">
