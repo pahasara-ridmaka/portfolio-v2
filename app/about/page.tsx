@@ -171,10 +171,10 @@ function AboutPage() {
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
             <p className=" font-light">
-              Univerisity of Sri Jayewardenepura
+              Univerisity of Sri Jayewardenepura - Faculty of Applied Sciences
             </p>
             <p className="italic text-sm font-extralight">
-              BSc. Physical Science - ICT
+              BSc. Information and Communication Technology
             </p>
           </div>
         </div>
