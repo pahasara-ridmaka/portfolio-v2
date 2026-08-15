@@ -4,19 +4,24 @@ import "./globals.css";
 import { AnimatedTemplate } from "@/components/common/AnimatedTemplate";
 import { SoundEffects } from "@/components/common/SoundEffects";
 import Footer from "@/components/common/Footer";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-export const metadata = {
-  title: "Portfolio",
-  description: "Personal Developer Portfolio",
-};
+
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
 };
+
+
+export const metadata: Metadata = {
+  metadataBase: new URL ("https://www.pahasara.me"),
+  title: "Portfolio",
+  description: "Personal Portfolio"
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
