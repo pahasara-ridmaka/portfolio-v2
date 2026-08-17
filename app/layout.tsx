@@ -18,7 +18,7 @@ export const viewport = {
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL ("https://pahasara.me"),
+  metadataBase: new URL ("https://www.pahasara.me"),
   title: "Portfolio",
   description: "Personal Portfolio"
 }
