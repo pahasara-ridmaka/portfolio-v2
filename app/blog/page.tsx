@@ -4,6 +4,8 @@ import { HyperText } from "@/components/ui/hyper-text";
 import { getAllBlogPosts } from "@/lib/blog";
 import type { Metadata } from "next";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pahasara.me";
+
 export const metadata: Metadata = {
   title: "Blog",
   description: "Notes, experiments, and write-ups by Pahasara Ridmaka.",
@@ -14,13 +16,12 @@ export const metadata: Metadata = {
     title: "Blog",
     description: "Notes, experiments, and write-ups by Pahasara Ridmaka.",
     type: "website",
-    url: "/blog",
-    images: [
-      {
-        url: "/profile.jpg",
-        alt: "Pahasara Ridmaka",
-      },
-    ],
+    url: `${siteUrl}/blog`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog",
+    description: "Notes, experiments, and write-ups by Pahasara Ridmaka.",
   },
 };
 

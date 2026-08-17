@@ -16,7 +16,6 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A practical checklist I use to make ETL workflows repeatable, observable, and safer to deploy.",
     tags: ["Data Engineering", "Airflow", "Best Practices"],
-    coverImage: "/images/blog/pipeline-cover.jpg",
     content: `# Why Reliability Matters
 
 When a pipeline fails silently, trust in analytics drops quickly. I now design pipelines around three pillars:

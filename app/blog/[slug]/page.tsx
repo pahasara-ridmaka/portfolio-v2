@@ -23,8 +23,9 @@ export async function generateMetadata({
     };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pahasara.me";
   const canonicalPath = `/blog/${post.slug}`;
-  const socialImage = post.coverImage ?? "/profile.jpg";
+  const canonicalUrl = `${siteUrl}${canonicalPath}`;
 
   return {
     title: post.title,
@@ -36,13 +37,12 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       type: "article",
-      url: canonicalPath,
-      images: [
-        {
-          url: socialImage,
-          alt: post.title,
-        },
-      ],
+      url: canonicalUrl,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }
