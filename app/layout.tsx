@@ -1,4 +1,5 @@
 // app/layout.tsx
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AnimatedTemplate } from "@/components/common/AnimatedTemplate";
@@ -7,9 +8,12 @@ import Footer from "@/components/common/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-export const metadata = {
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pahasara.me";
+
+export const metadata: Metadata = {
   title: "Portfolio",
   description: "Personal Developer Portfolio",
+  metadataBase: new URL(siteUrl),
 };
 
 export const viewport = {
