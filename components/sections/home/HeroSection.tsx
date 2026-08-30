@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
@@ -14,33 +14,23 @@ import ShimmeringText from "@/components/ui/shimmering-text";
 import { slideUp, staggerContainer } from "@/lib/animations";
 import { projects } from "@/lib/projects";
 
-// Card animation variants
-const cardVariants: Variants = {
-  rest: { y: 0, scale: 1 },
-  hover: {
-    y: -4,
-    scale: 1.01,
-    transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
 function HeroSection() {
   const [showHighlight, setShowHighlight] = useState(false);
 
   return (
     <motion.section
-      className="relative flex min-h-screen w-full flex-col max-w-4xl mx-auto px-4 py-8"
+      className="relative flex min-h-screen w-full flex-col max-w-3xl mx-auto px-4 py-12 selection:bg-zinc-800"
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
     >
-      {/* Header Row */}
-      <div className="flex flex-wrap justify-between items-start gap-4">
-        <motion.div className="flex flex-col items-start" variants={slideUp}>
+      {/* Top Header */}
+      <div className="flex justify-between items-start">
+        <motion.div variants={slideUp}>
           <motion.img
             src="profile.jpg"
             alt="Pahasara Ridmaka"
-            className="w-24 h-24 rounded-2xl object-cover border border-zinc-800 saturate-0 hover:saturate-100 transition-all duration-300 shadow-md"
+            className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 ring-1 ring-zinc-800"
           />
         </motion.div>
         <motion.div variants={slideUp}>
@@ -48,10 +38,10 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bio Section */}
-      <div className="mt-6">
+      {/* Bio */}
+      <div className="mt-8 space-y-6">
         <motion.p
-          className="text-zinc-400 leading-relaxed text-justify"
+          className="text-zinc-400 text-sm md:text-base leading-relaxed text-justify"
           variants={slideUp}
           onAnimationComplete={() => setShowHighlight(true)}
         >
@@ -61,129 +51,111 @@ function HeroSection() {
               Pahasara Ridmaka
             </Highlighter>
           ) : (
-            <span className="inline-block text-zinc-200">Pahasara Ridmaka</span>
+            <span className="text-zinc-200">Pahasara Ridmaka</span>
           )}
-          ,
+          , from Panama, a coastal village in the Eastern Province of Sri Lanka.
           <br />
           <br />
           Linux enthusiast and software/data engineer building full-stack apps
-           and scalable data pipelines across open-source
+          (FastAPI/React) and scalable data pipelines across open-source
           environments.
-          
         </motion.p>
 
-        {/* Current Status */}
+        {/* Status indicator */}
         <motion.div
-          className="mt-6 flex flex-wrap gap-3 items-center text-sm"
+          className="flex items-center gap-3 text-xs font-mono"
           variants={slideUp}
         >
-          <HyperText className="text-sm font-mono text-zinc-500">
-            current status:
-          </HyperText>
+          <span className="text-zinc-500">status:</span>
           <ShimmeringText
-            className="text-sm font-medium"
+            className="text-xs tracking-wider"
             text="LOOKING FOR OPPORTUNITIES"
           />
         </motion.div>
 
-        {/* Download CV Button */}
-        <motion.div className="my-8" variants={slideUp}>
-          <Button className="rounded-full px-6" variant="default">
+        {/* Action Button */}
+        <motion.div variants={slideUp} className="pt-2">
+          <Button
+            variant="outline"
+            className="rounded-full text-xs h-8 px-4 border-zinc-800 bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-white"
+          >
             <a href="files/resume.pdf" download>
-              Download CV
+              Download CV ↓
             </a>
           </Button>
         </motion.div>
 
-        <motion.hr variants={slideUp} className="border-zinc-800/80 my-8" />
+        <motion.hr variants={slideUp} className="border-zinc-800/60 my-10" />
 
-        {/* Projects Section */}
-        <motion.div variants={slideUp}>
-          <div className="flex items-center justify-between mb-6">
-            <HyperText className="text-sm font-mono uppercase tracking-wider text-zinc-400">
-              Featured Projects
+        {/* Minimal Projects List */}
+        <motion.div variants={slideUp} className="space-y-4">
+          <div className="flex justify-between items-center pb-2">
+            <HyperText className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
+              Selected Work
             </HyperText>
-            <span className="text-xs font-mono text-zinc-500">
-              {projects.length} Repositories
+            <span className="text-[11px] font-mono text-zinc-600">
+              index / 0{projects.length}
             </span>
           </div>
 
-          <PhotoProvider
-            maskOpacity={0.85}
-            speed={() => 300}
-            easing={(type) =>
-              type === 2
-                ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
-                : "cubic-bezier(0.34, 1.56, 0.64, 1)"
-            }
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <PhotoProvider maskOpacity={0.9} speed={() => 200}>
+            <div className="divide-y divide-zinc-850/60 border-t border-b border-zinc-850/60">
               {projects.map((project, index) => (
-                <motion.div
+                <div
                   key={project.slug || index}
-                  variants={cardVariants}
-                  initial="rest"
-                  whileHover="hover"
-                  className="group flex flex-col justify-between rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 backdrop-blur-sm transition-colors hover:border-zinc-700 hover:bg-zinc-900/70"
+                  className="group py-5 flex flex-col md:flex-row md:items-start justify-between gap-4 transition-colors duration-200 hover:bg-zinc-900/30 -mx-3 px-3 rounded-lg"
                 >
-                  <div>
-                    {/* Terminal-like Window Header */}
-                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800/60">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700/80 group-hover:bg-red-500/80 transition-colors" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700/80 group-hover:bg-yellow-500/80 transition-colors" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-zinc-700/80 group-hover:bg-green-500/80 transition-colors" />
-                      </div>
+                  {/* Left: Info */}
+                  <div className="flex-1 space-y-1.5 min-w-0">
+                    <div className="flex items-center gap-3">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="text-sm font-medium text-zinc-200 group-hover:text-white transition-colors underline-offset-4 hover:underline"
+                      >
+                        {project.title}
+                      </Link>
                       <span className="text-[11px] font-mono text-zinc-500">
                         {project.date}
                       </span>
                     </div>
 
-                    {/* Title & Link */}
-                    <div className="flex items-center justify-between gap-2">
-                      <Link
-                        href={`/projects/${project.slug}`}
-                        className="text-base font-medium text-zinc-100 group-hover:text-blue-400 transition-colors inline-flex items-center gap-1"
-                      >
-                        {project.title}
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs">
-                          ↗
-                        </span>
-                      </Link>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs text-zinc-400 mt-2 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-zinc-400 leading-normal line-clamp-2 max-w-md">
                       {project.shortDescription}
                     </p>
                   </div>
 
-                  {/* Image Lightbox Preview */}
+                  {/* Right: Compact Image Trigger Previews */}
                   {project.images && project.images.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-zinc-800/40">
-                      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-                        {project.images.map((img, imgIndex) => (
-                          <PhotoView key={imgIndex} src={img}>
-                            <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950 cursor-zoom-in">
-                              <img
-                                src={img}
-                                alt={`${project.title} preview ${imgIndex + 1}`}
-                                className="h-full w-full object-cover saturate-50 group-hover:saturate-100 hover:scale-105 transition-all duration-300"
-                              />
-                            </div>
-                          </PhotoView>
-                        ))}
-                      </div>
+                    <div className="flex items-center gap-1.5 self-start shrink-0 pt-0.5">
+                      {project.images.slice(0, 3).map((img, imgIndex) => (
+                        <PhotoView key={imgIndex} src={img}>
+                          <div
+                            className="relative w-12 h-8 rounded border border-zinc-800 overflow-hidden bg-zinc-950 cursor-pointer transition-all duration-200 hover:border-zinc-500 hover:scale-110"
+                            title="Click to view image"
+                          >
+                            <img
+                              src={img}
+                              alt={project.title}
+                              className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                            />
+                          </div>
+                        </PhotoView>
+                      ))}
+                      {project.images.length > 3 && (
+                        <span className="text-[10px] font-mono text-zinc-500 pl-1">
+                          +{project.images.length - 3}
+                        </span>
+                      )}
                     </div>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
           </PhotoProvider>
         </motion.div>
       </div>
 
-      <div className="mt-16" />
+      <div className="h-16" />
     </motion.section>
   );
 }
