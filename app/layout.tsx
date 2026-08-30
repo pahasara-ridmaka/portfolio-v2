@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-white overflow-x-hidden dark max-w-3xl mx-auto px-4 sm:px-6 mt-16 sm:mt-28">
+      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-accent selection:text-white overflow-x-hidden dark max-w-3xl mx-auto px-4 sm:px-6 mt-12 ">
         <SoundEffects />
         <AnimatedTemplate>
           {children}

@@ -1,55 +1,38 @@
 "use client";
-import "react-photo-view/dist/react-photo-view.css";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import { HyperText } from "@/components/ui/hyper-text";
-
-import { motion } from "framer-motion";
-import { NavigationMenuDemo } from "@/components/common/NavigationMenu";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { slideUp, staggerContainer } from "@/lib/animations";
-import { projects } from "@/lib/projects";
-import type { Variants } from "framer-motion";
 
 import { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import "react-photo-view/dist/react-photo-view.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
+import { HyperText } from "@/components/ui/hyper-text";
+import { NavigationMenuDemo } from "@/components/common/NavigationMenu";
+import { Button } from "@/components/ui/button";
 import { Highlighter } from "@/components/ui/highlighter";
 import ShimmeringText from "@/components/ui/shimmering-text";
+import { slideUp, staggerContainer } from "@/lib/animations";
+import { projects } from "@/lib/projects";
 
-// Hover variants for project cards
-const cardHover: Variants = {
-  rest: { scale: 1, boxShadow: "0 0 0 0 rgba(255,255,255,0)" },
-  hover: {
-    scale: 1.02,
-    boxShadow: "0 8px 30px 0 rgba(255,255,255,0.08)",
-    transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-const imageHover: Variants = {
-  rest: { scale: 1 },
-  hover: {
-    scale: 1.08,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import GitHubLiveHeatmap from "@/components/common/GitHubLiveHeatmap";
 
 function HeroSection() {
   const [showHighlight, setShowHighlight] = useState(false);
+
   return (
     <motion.section
-      className="relative flex min-h-screen w-full flex-col"
+      className="relative flex min-h-screen w-full flex-col max-w-3xl mx-auto px-4 py-12 selection:bg-zinc-800"
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
     >
-      {/* Header row */}
-      <div className="flex flex-wrap justify-between items-start gap-3">
-        <motion.div className="flex flex-col items-end" variants={slideUp}>
+      {/* Top Header */}
+      <div className="flex justify-between items-start">
+        <motion.div variants={slideUp}>
           <motion.img
             src="profile.jpg"
             alt="Pahasara Ridmaka"
-            className="w-24 h-auto rounded-xl object-contain mb-4 saturate-0 hover:saturate-75 transition-all duration-300"
+            className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 ring-1 ring-zinc-800"
           />
         </motion.div>
         <motion.div variants={slideUp}>
@@ -57,10 +40,10 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bio section */}
-      <div>
+      {/* Bio */}
+      <div className="mt-8 space-y-6">
         <motion.p
-          className="text-zinc-400 leading-relaxed  text-justify mt-4 "
+          className="text-zinc-400 text-sm md:text-base leading-relaxed text-justify"
           variants={slideUp}
           onAnimationComplete={() => setShowHighlight(true)}
         >
@@ -70,95 +53,132 @@ function HeroSection() {
               Pahasara Ridmaka
             </Highlighter>
           ) : (
-            <span className="inline-block">Pahasara Ridmaka</span>
+            <span className="text-zinc-200">Pahasara Ridmaka</span>
           )}
-          , from Panama, a coastal village in the Eastern Province of Sri Lanka.
+          ,
           <br />
           <br />
-          I'm a recent ICT graduate with a strong foundation in math and
-          physics, and hands-on experience in full-stack development and data
-          engineering, building with React, FastAPI, PostgreSQL, Airflow, and
-          dbt.
-          <br />
-          <br /> I'm a Linux enthusiast who loves open-source and scalable
-          systems, and I'm excited to bring my analytical mindset to a
-          collaborative engineering role.
-          <br />
-          <br />
+          Linux enthusiast and software/data engineer building full-stack apps
+          and scalable data pipelines across open-source environments.
         </motion.p>
 
-        <motion.div
-          className="mt-4 flex flex-wrap gap-2 items-center  text-sm"
-          variants={slideUp}
-        >
-          <HyperText className="text-sm">current status:</HyperText>
-          <ShimmeringText className="text-lg" text="LOOKING FOR OPPORTUNITIES" />
+        {/* GitHub Heatmap Section */}
+        <motion.div variants={slideUp} className="mt-8 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
+              Activity / Contributions
+            </span>
+            <span className="text-[11px] font-mono text-zinc-600">
+              live github stats
+            </span>
+          </div>
+
+          <div className="w-full overflow-hidden flex justify-end">
+            <div className="shrink-0 min-w-max">
+              <GitHubLiveHeatmap />
+            </div>
+          </div>
+
+          <p className="text-[11px] font-mono text-zinc-500 text-right">
+            * synced directly from github commits
+          </p>
         </motion.div>
 
-        {/* Download CV button */}
-
+        {/* Status indicator */}
         <motion.div
-          className="my-8 gap-4 flex flex-wrap flex-row items-center "
+          className="flex items-center gap-3 text-xs font-mono"
           variants={slideUp}
         >
-          <Button className="rounded-full" variant="default" >
-            <a href="files/resume.pdf">Download CV</a>
+          <span className="text-zinc-500">status:</span>
+          <ShimmeringText
+            className="text-xs tracking-wider"
+            text="LOOKING FOR OPPORTUNITIES"
+          />
+        </motion.div>
+
+        {/* Action Button */}
+        <motion.div variants={slideUp} className="pt-2">
+          <Button
+            variant="outline"
+            className="rounded-full text-xs h-8 px-4 border-zinc-800 bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-white"
+          >
+            <a href="files/resume.pdf" download>
+              Download CV ↓
+            </a>
           </Button>
         </motion.div>
 
-        <motion.hr variants={slideUp} className="border-zinc-800" />
+        <motion.hr variants={slideUp} className="border-zinc-800/60 my-10" />
 
-        {/* Projects */}
-        <motion.div className="mt-8" variants={slideUp}>
-          <HyperText className="text-sm">Projects</HyperText>
+        {/* Minimal Projects List */}
+        <motion.div variants={slideUp} className="space-y-4">
+          <div className="flex justify-between items-center pb-2">
+            <HyperText className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
+              Selected Work
+            </HyperText>
+            <span className="text-[11px] font-mono text-zinc-600">
+              index / 0{projects.length}
+            </span>
+          </div>
 
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="mt-8 font-light flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-start sm:justify-between text-zinc-400 "
-              variants={slideUp}
-            >
-              <span className="text-xs whitespace-nowrap shrink-0">
-                {project.date}
-              </span>
-              <div className="flex-1 min-w-0 flex flex-col items-start gap-2">
-                <p className="text-white underline">
-                  <Link href={`/projects/${project.slug}`}>
-                    {project.title}
-                  </Link>
-                </p>
-                <p>{project.shortDescription}</p>
+          <PhotoProvider maskOpacity={0.9} speed={() => 200}>
+            <div className="divide-y divide-zinc-850/60 border-t border-b border-zinc-850/60">
+              {projects.map((project, index) => (
+                <div
+                  key={project.slug || index}
+                  className="group py-5 flex flex-col md:flex-row md:items-start justify-between gap-4 transition-colors duration-200 hover:bg-zinc-900/30 -mx-3 px-3 rounded-lg"
+                >
+                  {/* Left: Info */}
+                  <div className="flex-1 space-y-1.5 min-w-0">
+                    <div className="flex items-center gap-3">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="text-sm font-medium text-zinc-200 group-hover:text-white transition-colors underline-offset-4 hover:underline"
+                      >
+                        {project.title}
+                      </Link>
+                      <span className="text-[11px] font-mono text-zinc-500">
+                        {project.date}
+                      </span>
+                    </div>
 
-                <div className="mt-4 flex w-full max-w-full gap-4 overflow-x-auto px-1 pb-2 snap-x">
-                  {/* Wrap all images with PhotoProvider */}
-                  <PhotoProvider>
-                    {project.images.map((img, imgIndex) => (
-                      <PhotoView key={imgIndex} src={img}>
-                        <motion.div
-                          data-sound="click"
-                          className="w-64 h-40 sm:w-48 sm:h-32 shrink-0 snap-start rounded-lg overflow-hidden bg-zinc-800 cursor-pointer"
-                          variants={cardHover}
-                          initial="rest"
-                          whileHover="hover"
-                        >
-                          <motion.img
-                            src={img}
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                            variants={imageHover}
-                          />
-                        </motion.div>
-                      </PhotoView>
-                    ))}
-                  </PhotoProvider>
+                    <p className="text-xs text-zinc-400 leading-normal line-clamp-2 max-w-md">
+                      {project.shortDescription}
+                    </p>
+                  </div>
+
+                  {/* Right: Compact Image Trigger Previews */}
+                  {project.images && project.images.length > 0 && (
+                    <div className="flex items-center gap-1.5 self-start shrink-0 pt-0.5">
+                      {project.images.slice(0, 3).map((img, imgIndex) => (
+                        <PhotoView key={imgIndex} src={img}>
+                          <div
+                            className="relative w-12 h-8 rounded border border-zinc-800 overflow-hidden bg-zinc-950 cursor-pointer transition-all duration-200 hover:border-zinc-500 hover:scale-110"
+                            title="Click to view image"
+                          >
+                            <img
+                              src={img}
+                              alt={project.title}
+                              className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                            />
+                          </div>
+                        </PhotoView>
+                      ))}
+                      {project.images.length > 3 && (
+                        <span className="text-[10px] font-mono text-zinc-500 pl-1">
+                          +{project.images.length - 3}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              ))}
+            </div>
+          </PhotoProvider>
         </motion.div>
       </div>
 
-      <div className="mt-16"></div>
+      <div className="h-16" />
     </motion.section>
   );
 }
