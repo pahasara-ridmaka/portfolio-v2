@@ -1,80 +1,64 @@
+<div align="center">
+
 # Portfolio v2
 
-A personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+### _A modern personal portfolio featuring projects, MDX blog, and live GitHub stats_
 
-## Overview
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?logo=framer)](https://www.framer.com/motion/)
 
-This project presents profile, featured projects, and certifications in a modern single-page layout with section-based navigation.
+---
 
-## Features
+</div>
 
-- Hero section with quick contact actions
-- Personal profile and technology stack section
-- Project showcase with interactive modal previews
-- Certification gallery with carousel and full-screen preview
-- Sticky navigation with smooth scrolling
-- Responsive design optimized for desktop and mobile
+🚀 A modern personal portfolio built with Next.js, React, TypeScript, and Tailwind CSS, featuring project showcases, an MDX-driven blog, and a live GitHub contribution heatmap.
 
-## Tech Stack
+## ✨ Core Features
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Framer Motion
+- **Dynamic Landing Page:** Responsive interface with smooth animations and layout transitions
+- **Project Showcase:** Detailed case studies with dedicated individual project pages
+- **MDX Blog Engine:** Fast, markdown-powered articles powered by `next-mdx-remote` and `gray-matter`
+- **Interactive About Section:** Comprehensive view of background, experience, and technical skill sets
+- **Live GitHub Heatmap:** Real-time contribution calendar integrated via GitHub GraphQL API
+- **Optimized Performance:** App Router architecture with structured SEO metadata and clean layouts
 
-## Getting Started
+## 🧰 Tech Stack
 
-### Prerequisites
+- **Framework:** Next.js 16 (App Router)
+- **UI & Styling:** React 19, Tailwind CSS 4
+- **Language:** TypeScript
+- **Animations:** Framer Motion
+- **Content / CMS:** `gray-matter`, `next-mdx-remote` (MDX)
+- **Data Integration:** GitHub GraphQL API
 
-- Node.js 20+
-- npm
+## 📦 Project Structure
 
-### Installation
+- `app/` — Routes, layouts, metadata, and API endpoints (including GitHub contributions)
+- `components/` — Shared structural UI components and modular page sections
+- `content/blog/` — MDX articles and blog post source files
+- `lib/` — Data loading utilities for projects and MDX blog posts
+- `public/` — Static media, custom graphics, and downloadable assets
 
-```bash
-npm install
+## 🔑 Environment Variables
+
+To enable the live GitHub contribution heatmap, create a `.env.local` file in the root directory:
+
+```env
+GITHUB_TOKEN=your_github_personal_access_token
 ```
 
-### Run locally
+The route handler at `app/api/github-contributions/route.ts` consumes this token to query GitHub's GraphQL API.
 
-```bash
-npm run dev
-```
+## 📝 Content Management
 
-Open `http://localhost:3000` in your browser.
+- **Projects:** Configured statically in `lib/projects.ts`
+- **Blog Loaders:** Post parsers and metadata helpers configured in `lib/blog.ts`
+- **Articles:** Add new `.mdx` files with frontmatter directly to `content/blog/`
 
-## Available Scripts
+## 🌐 Live Demo & Deployment
 
-- `npm run dev` - Start local development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## Project Structure
-
-```text
-app/                    # App Router pages, layout, and global styles
-components/             # Shared UI components (navbar, footer)
-sections/               # Page sections (hero, whoami, projects, certifications)
-public/                 # Static assets (images, icons, resume)
-```
-
-## Content Updates
-
-Main portfolio data (projects and certifications) is currently defined in:
-
-- `app/page.tsx`
-
-Section implementations are located in:
-
-- `sections/hero/HeroSection.tsx`
-- `sections/whoami/WhoamiSection.tsx`
-- `sections/projects/ProjectSection.tsx`
-- `sections/certifications/CertificationSection.tsx`
-
-## Deployment
-
-This project can be deployed to platforms that support Next.js, such as Vercel.
-
-Live site: https://www.pahasara.me/
+- **Live URL:** [https://www.pahasara.me/](https://www.pahasara.me/)
+- **Deployment:** Fully optimized and continuously deployed on [Vercel](https://vercel.com/)
