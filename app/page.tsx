@@ -1,4 +1,3 @@
-import React from 'react'
 import HeroSection from '@/components/sections/home/HeroSection'
 
 function HomePage() {
