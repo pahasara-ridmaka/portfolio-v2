@@ -57,7 +57,7 @@ function HeroSection() {
           <br />
           <br />
           Linux enthusiast and software/data engineer building full-stack apps
-          (FastAPI/React) and scalable data pipelines across open-source
+          and scalable data pipelines across open-source
           environments.
         </motion.p>
 
