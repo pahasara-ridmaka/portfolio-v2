@@ -53,7 +53,7 @@ function HeroSection() {
           ) : (
             <span className="text-zinc-200">Pahasara Ridmaka</span>
           )}
-          , from Panama, a coastal village in the Eastern Province of Sri Lanka.
+          ,
           <br />
           <br />
           Linux enthusiast and software/data engineer building full-stack apps
