@@ -14,6 +14,8 @@ import ShimmeringText from "@/components/ui/shimmering-text";
 import { slideUp, staggerContainer } from "@/lib/animations";
 import { projects } from "@/lib/projects";
 
+import GitHubLiveHeatmap from "@/components/common/GitHubLiveHeatmap";
+
 function HeroSection() {
   const [showHighlight, setShowHighlight] = useState(false);
 
@@ -57,9 +59,30 @@ function HeroSection() {
           <br />
           <br />
           Linux enthusiast and software/data engineer building full-stack apps
-          and scalable data pipelines across open-source
-          environments.
+          and scalable data pipelines across open-source environments.
         </motion.p>
+
+        {/* GitHub Heatmap Section */}
+        <motion.div variants={slideUp} className="mt-8 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
+              Activity / Contributions
+            </span>
+            <span className="text-[11px] font-mono text-zinc-600">
+              live github stats
+            </span>
+          </div>
+
+          <div className="w-full overflow-hidden flex justify-end">
+            <div className="shrink-0 min-w-max">
+              <GitHubLiveHeatmap />
+            </div>
+          </div>
+
+          <p className="text-[11px] font-mono text-zinc-500 text-right">
+            * synced directly from github commits
+          </p>
+        </motion.div>
 
         {/* Status indicator */}
         <motion.div
