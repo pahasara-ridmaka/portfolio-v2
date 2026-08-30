@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const username = "pahasara-ridmaka"; // 👈 Ensure this is your real handle!
+  const username = "pahasara-ridmaka"; 
   const token = process.env.GITHUB_TOKEN;
 
   if (!token) {
@@ -33,7 +33,6 @@ export async function GET() {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
-        // 👇 CRITICAL: GitHub's API drops requests without a User-Agent header
         'User-Agent': 'NextJS-Contribution-Heatmap' 
       },
       body: JSON.stringify({ query, variables: { username } }),
