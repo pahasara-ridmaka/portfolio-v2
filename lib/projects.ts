@@ -45,6 +45,7 @@ export const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/pahasara-ridmaka/hold-my-resume",
+      demo: "http://pridmaka.pythonanywhere.com",
     },
     category: "WEB",
   },
