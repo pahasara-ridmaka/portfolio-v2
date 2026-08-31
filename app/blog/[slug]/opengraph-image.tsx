@@ -28,7 +28,7 @@ export default async function Image({
         }}
       >
         <div style={{ fontSize: 20, opacity: 0.6, marginBottom: 24 }}>
-          yourname.dev
+          pahasara.me
         </div>
         <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.2 }}>
           {post.title}
