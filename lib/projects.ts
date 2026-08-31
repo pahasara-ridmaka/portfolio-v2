@@ -15,6 +15,40 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+
+  {
+    slug: "holdmyresume-job-application-tracker",
+    title: "HOLDMYRESUME - Job Application Tracker",
+    date: "2026",
+    shortDescription:
+      "A Django application for organizing job applications, tracking hiring stages, and analyzing application metrics with CSV export support.",
+    longDescription: [
+      "HOLDMYRESUME is a full-stack job application tracker designed to streamline the job hunt. It allows job seekers to organize their submissions, monitor recruitment stages, and evaluate outcome metrics through an integrated dashboard.",
+      "The application features robust authentication, user profile management, and relational tracking linking applications to specific companies and platforms. Users can attach resumes and cover letters stored in isolated local storage, manage dynamic hiring statuses (Applied, Interviewing, Offer, Rejected), and perform drawer-based quick edits powered by HTMX.",
+      "Built using Django and SQLite, the platform includes a centralized analytics module with CSV export capabilities, an integrated Django admin suite, and automated database migrations for straightforward local development and deployment readiness."
+    ],
+    images: [
+      "/images/projects/hold-my-resume/1.png",
+      "/images/projects/hold-my-resume/2.png",
+      "/images/projects/hold-my-resume/3.png",
+      "/images/projects/hold-my-resume/4.png",
+      "/images/projects/hold-my-resume/5.png"
+    ],
+    techStack: ["Python", "Django", "SQLite", "HTMX", "CSS", "HTML"],
+    features: [
+      "Complete user authentication, profile management, and password reset flows",
+      "Application lifecycle tracking across Applied, Interviewing, Offer, and Rejected statuses",
+      "Company and platform linkage with custom metadata, job URLs, and descriptions",
+      "Secure local file management for customized resumes and cover letters",
+      "Interactive analytics dashboard with instant CSV data export",
+      "Fast, responsive drawer interactions built with HTMX and Django templates"
+    ],
+    links: {
+      github: "https://github.com/pahasara-ridmaka/hold-my-resume",
+    },
+    category: "WEB",
+  },
+
  {
     slug: "dbt-e-commerce-data-transformation-pipeline",
     title: "dbt E-Commerce Data Transformation Pipeline",
