@@ -89,10 +89,10 @@ function HeroSection() {
           className="flex items-center gap-3 text-xs font-mono"
           variants={slideUp}
         >
-          <span className="text-zinc-500">status:</span>
+          <span className="text-zinc-500">Currently :-</span>
           <ShimmeringText
             className="text-xs tracking-wider"
-            text="LOOKING FOR OPPORTUNITIES"
+            text="Reading Snowflake: The Definitive Guide by Joyce Kay Avila"
           />
         </motion.div>
 
