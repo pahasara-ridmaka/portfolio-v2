@@ -11,6 +11,33 @@ import { Highlighter } from "@/components/ui/highlighter";
 function AboutPage() {
   const [showHighlight, setShowHighlight] = useState(false);
 
+  const skills = [
+    {
+      category: "Languages",
+      items: ["Python", "SQL", "TypeScript", "JavaScript", "HTML", "CSS", "C", "Java"],
+    },
+    {
+      category: "Core Concepts",
+      items: ["Data Structures & Algorithms (DSA)", "OOP", "Distributed Systems", "SDLC", "Agile/Scrum"],
+    },
+    {
+      category: "Data Engineering",
+      items: ["Hadoop", "PySpark", "Apache Airflow", "Pandas", "NumPy", "Power BI", "Streamlit"],
+    },
+    {
+      category: "Databases & Formats",
+      items: ["PostgreSQL", "MySQL", "MongoDB", "Snowflake", "JSON", "XML"],
+    },
+    {
+      category: "Backend & Frontend",
+      items: ["FastAPI", "Django", "Django Rest Framework", "Next.js", "React", "RESTful APIs", "Bootstrap"],
+    },
+    {
+      category: "Cloud, DevOps & Tools",
+      items: ["Docker", "AWS", "Linux", "Git", "GitHub Actions", "CI/CD", "Bash", "Vim"],
+    },
+  ];
+
   const achievements = [
     {
       date: "Sep 2024",
@@ -18,7 +45,7 @@ function AboutPage() {
       provider: "IMSSA, University of Kelaniya",
       href: "",
     },
-  ]
+  ];
 
   const certificates = [
     {
@@ -33,7 +60,6 @@ function AboutPage() {
       provider: "DataCamp",
       href: "",
     },
-
     {
       date: "Jul 2026",
       title: "Introduction to PySpark",
@@ -46,7 +72,6 @@ function AboutPage() {
       provider: "DataCamp",
       href: "",
     },
-
     {
       date: "Jul 2026",
       title: "Introduction to Apache Airflow in Python",
@@ -61,8 +86,7 @@ function AboutPage() {
     },
     {
       date: "Jun 2026",
-      title:
-        "AWS Academy Graduate - Machine Learning Foundations - Training Badge",
+      title: "AWS Academy Graduate - Machine Learning Foundations - Training Badge",
       provider: "AWS Academy",
       href: "",
     },
@@ -72,7 +96,6 @@ function AboutPage() {
       provider: "AWS Academy",
       href: "",
     },
-
     {
       date: "Jun 2026",
       title: "AWS Academy Graduate - Cloud Foundations - Training Badge",
@@ -85,7 +108,6 @@ function AboutPage() {
       provider: "Google",
       href: "",
     },
-
     {
       date: "Sep 2024",
       title: "Postman API Fundamentals Student Expert",
@@ -123,7 +145,7 @@ function AboutPage() {
       </motion.h2>
 
       <motion.p
-        className=" text-zinc-400 leading-relaxed  text-justify"
+        className="text-zinc-400 leading-relaxed text-justify"
         variants={slideUp}
         onAnimationComplete={() => setShowHighlight(true)}
       >
@@ -163,6 +185,38 @@ function AboutPage() {
         Still curious. Still building.
       </motion.p>
 
+      {/* Skills Section */}
+      <motion.div className="mt-4 mb-4" variants={slideUp}>
+        <motion.h3 className="mb-4" variants={slideUp}>
+          <HyperText className="text-sm">Skills</HyperText>
+        </motion.h3>
+        <div className="flex flex-col gap-4">
+          {skills.map((skillGroup, index) => (
+            <motion.div
+              key={index}
+              variants={slideUp}
+              className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 text-sm"
+            >
+              <span className="text-zinc-200 font-medium sm:w-48 shrink-0">
+                {skillGroup.category}
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {skillGroup.items.map((item, itemIdx) => (
+                  <span
+                    key={itemIdx}
+                    className="text-xs font-light text-zinc-400 bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/40 rounded-md px-2 py-0.5 transition-colors duration-150"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      <motion.hr variants={slideUp} className="border-zinc-800" />
+
       {/* Education Section */}
       <motion.div className="mt-4 mb-4" variants={slideUp}>
         <h2>
@@ -170,7 +224,7 @@ function AboutPage() {
         </h2>
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className=" font-light">
+            <p className="font-light">
               Univerisity of Sri Jayewardenepura - Faculty of Applied Sciences
             </p>
             <p className="italic text-sm font-extralight">
@@ -182,7 +236,7 @@ function AboutPage() {
 
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className=" font-light">B/Dharmadutha College, Badulla</p>
+            <p className="font-light">B/Dharmadutha College, Badulla</p>
             <p className="italic text-sm font-extralight">
               Physical Science Stream (Combined Maths, ICT, Physics)
             </p>
@@ -192,7 +246,7 @@ function AboutPage() {
 
         <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
           <div className="w-full">
-            <p className=" font-light">
+            <p className="font-light">
               Am/Panama Maha Vidyalaya, Panama
             </p>
             <p className="italic text-sm font-extralight">
@@ -205,7 +259,6 @@ function AboutPage() {
 
       <motion.hr variants={slideUp} className="border-zinc-800" />
 
-      
       {/* Achievements Section */}
       <motion.div className="mt-4 mb-4" variants={slideUp}>
         <motion.h3 className="mb-3" variants={slideUp}>
@@ -224,7 +277,7 @@ function AboutPage() {
               <p className="text-white underline wrap-break-word">
                 <Link href={achievement.href}>{achievement.title}</Link>
               </p>
-              <p className="italic  whitespace-nowrap">by {achievement.provider}</p>
+              <p className="italic whitespace-nowrap">by {achievement.provider}</p>
             </div>
           </motion.div>
         ))}
@@ -250,7 +303,7 @@ function AboutPage() {
               <p className="text-white underline wrap-break-word">
                 <Link href={cert.href}>{cert.title}</Link>
               </p>
-              <p className="italic  whitespace-nowrap">by {cert.provider}</p>
+              <p className="italic whitespace-nowrap">by {cert.provider}</p>
             </div>
           </motion.div>
         ))}
