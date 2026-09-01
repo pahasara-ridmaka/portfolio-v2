@@ -91,18 +91,3 @@ When databases slow down, it causes real problems:
 - 😠 Users get frustrated and leave.
 
 When you fix hot queries, everything runs smoothly. Your servers stay healthy, pages load instantly, and your users stay happy.
-
----
-
-## Summary Cheat Sheet
-
-| Problem | Simple Fix |
-| :--- | :--- |
-| Database reads every row | Add an **Index** to the searched column |
-| Fetching unnecessary data | Replace `SELECT *` with specific columns |
-| Too many rows returned | Use `WHERE` filters and `LIMIT` |
-| Giant table joins freezing memory | Break queries into smaller, focused steps |
-
----
-
-*Hot queries are not a disaster—they just need better design. Keep your requests small, specific, and well-indexed!*
