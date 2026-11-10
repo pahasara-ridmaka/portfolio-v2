@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useReducedMotion } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -36,6 +37,7 @@ export function GlyphMatrix({
   ...props
 }: GlyphMatrixProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const reduceMotion = useReducedMotion()
   // Current glyph color as RGBA (a in 0-1). Kept in a ref so a color change
   // (e.g. theme toggle) recolors the next frame without restarting the
   // animation. Defaults to #6B7280.
@@ -134,7 +136,7 @@ export function GlyphMatrix({
 
     resize()
     draw()
-    raf = requestAnimationFrame(tick)
+    if (!reduceMotion) raf = requestAnimationFrame(tick)
 
     const ro = new ResizeObserver(() => {
       resize()
@@ -147,7 +149,7 @@ export function GlyphMatrix({
       cancelAnimationFrame(raf)
       ro.disconnect()
     }
-  }, [glyphs, cellSize, mutationRate, interval, fadeBottom])
+  }, [glyphs, cellSize, mutationRate, interval, fadeBottom, reduceMotion])
 
   return (
     <canvas

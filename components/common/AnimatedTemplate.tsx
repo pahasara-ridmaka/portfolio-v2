@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, MotionConfig, motion } from "framer-motion"
 import { usePathname } from "next/navigation"
 import { pageTransition } from "@/lib/animations"
 import type { ReactNode } from "react"
@@ -13,16 +13,18 @@ export function AnimatedTemplate({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        variants={pageTransition}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <MotionConfig reducedMotion="user">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={pathname}
+          variants={pageTransition}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
+    </MotionConfig>
   )
 }

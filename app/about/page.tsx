@@ -1,5 +1,7 @@
 "use client";
 
+import { SkillsSection } from "@/components/common/SkillsSection";
+import { EducationSection } from "@/components/common/EducationSection";
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,33 +12,6 @@ import { Highlighter } from "@/components/ui/highlighter";
 
 function AboutPage() {
   const [showHighlight, setShowHighlight] = useState(false);
-
-  const skills = [
-    {
-      category: "Languages",
-      items: ["Python", "SQL", "TypeScript", "JavaScript", "HTML", "CSS", "C", "Java"],
-    },
-    {
-      category: "Core Concepts",
-      items: ["Data Structures & Algorithms (DSA)", "OOP", "Distributed Systems", "SDLC", "Agile/Scrum"],
-    },
-    {
-      category: "Data Engineering",
-      items: ["Hadoop", "PySpark", "Apache Airflow", "Pandas", "NumPy", "Power BI", "Streamlit"],
-    },
-    {
-      category: "Databases & Formats",
-      items: ["PostgreSQL", "MySQL", "MongoDB", "Snowflake", "JSON", "XML"],
-    },
-    {
-      category: "Backend & Frontend",
-      items: ["FastAPI", "Django", "Django Rest Framework", "Next.js", "React", "RESTful APIs", "Bootstrap"],
-    },
-    {
-      category: "Cloud, DevOps & Tools",
-      items: ["Docker", "AWS", "Linux", "Git", "GitHub Actions", "CI/CD", "Bash", "Vim"],
-    },
-  ];
 
   const achievements = [
     {
@@ -154,7 +129,7 @@ function AboutPage() {
           alt="Pahasara Ridmaka"
           className="w-24 h-auto rounded-xl object-contain mb-4 saturate-0 hover:saturate-75 transition-all duration-300"
         />
-        I'm{" "}
+        I&apos;m{" "}
         {showHighlight ? (
           <Highlighter action="highlight" isView={true} animationDuration={0}>
             Pahasara Ridmaka
@@ -169,7 +144,7 @@ function AboutPage() {
         read an HTML5 book written in Sinhala and wrote my first HTML page. That
         was the beginning. Around the same time, I was reading Wijaya Pariganaka
         Magazine and trying out everything in it experimenting, breaking things,
-        fixing them. That's how I fell into development.
+        fixing them. That&apos;s how I fell into development.
         <br />
         <br />
         I took IT as a subject for O/Ls and continued with it for A/Ls. In 2023,
@@ -177,7 +152,7 @@ function AboutPage() {
         Jayewardenepura.
         <br />
         <br />
-        Now I'm an ICT undergraduate working on full-stack development and data
+        Now I&apos;m an ICT undergraduate working on full-stack development and data
         engineering. I build systems that are scalable, repeatable, and
         reliable.
         <br />
@@ -185,77 +160,11 @@ function AboutPage() {
         Still curious. Still building.
       </motion.p>
 
-      {/* Skills Section */}
-      <motion.div className="mt-4 mb-4" variants={slideUp}>
-        <motion.h3 className="mb-4" variants={slideUp}>
-          <HyperText className="text-sm">Skills</HyperText>
-        </motion.h3>
-        <div className="flex flex-col gap-4">
-          {skills.map((skillGroup, index) => (
-            <motion.div
-              key={index}
-              variants={slideUp}
-              className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 text-sm"
-            >
-              <span className="text-zinc-200 font-medium sm:w-48 shrink-0">
-                {skillGroup.category}
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {skillGroup.items.map((item, itemIdx) => (
-                  <span
-                    key={itemIdx}
-                    className="text-xs font-light text-zinc-400 bg-zinc-800/50 hover:bg-zinc-800 border border-zinc-700/40 rounded-md px-2 py-0.5 transition-colors duration-150"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+      <SkillsSection />
 
       <motion.hr variants={slideUp} className="border-zinc-800" />
 
-      {/* Education Section */}
-      <motion.div className="mt-4 mb-4" variants={slideUp}>
-        <h2>
-          <HyperText className="text-sm">Education</HyperText>
-        </h2>
-        <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
-          <div className="w-full">
-            <p className="font-light">
-              Univerisity of Sri Jayewardenepura - Faculty of Applied Sciences
-            </p>
-            <p className="italic text-sm font-extralight">
-              BSc. Information and Communication Technology
-            </p>
-          </div>
-        </div>
-        <span className="text-xs font-light text-zinc-400">2023-2026</span>
-
-        <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
-          <div className="w-full">
-            <p className="font-light">B/Dharmadutha College, Badulla</p>
-            <p className="italic text-sm font-extralight">
-              Physical Science Stream (Combined Maths, ICT, Physics)
-            </p>
-          </div>
-        </div>
-        <span className="text-xs font-light text-zinc-400">2017-2020</span>
-
-        <div className="flex flex-row w-full gap-4 items-start justify-start mt-4">
-          <div className="w-full">
-            <p className="font-light">
-              Am/Panama Maha Vidyalaya, Panama
-            </p>
-            <p className="italic text-sm font-extralight">
-              Primary and Secondary Education
-            </p>
-          </div>
-        </div>
-        <span className="text-xs font-light text-zinc-400">2006-2016</span>
-      </motion.div>
+      <EducationSection />
 
       <motion.hr variants={slideUp} className="border-zinc-800" />
 

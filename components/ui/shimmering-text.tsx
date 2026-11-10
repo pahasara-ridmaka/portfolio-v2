@@ -1,6 +1,6 @@
 "use client"
 
-import { type HTMLMotionProps, motion, type Transition } from "motion/react"
+import { type HTMLMotionProps, motion, useReducedMotion, type Transition } from "motion/react"
 import type * as React from "react"
 import { cn } from "@/lib/utils"
 
@@ -23,6 +23,8 @@ function ShimmeringText({
   shimmeringColor = "var(--color-neutral-300)",
   ...props
 }: ShimmeringTextProps) {
+  const reduceMotion = useReducedMotion()
+
   return (
     <motion.span
       className={cn("relative inline-block [perspective:500px]", className)}
@@ -33,11 +35,11 @@ function ShimmeringText({
           color: "var(--color)",
         } as React.CSSProperties
       }
-      {...(props as any)}
+      {...props}
     >
       {text?.split("")?.map((char, i) => (
         <motion.span
-          animate={{
+          animate={reduceMotion ? { color: "var(--color)" } : {
             ...(wave
               ? {
                   x: [0, 5, 0],

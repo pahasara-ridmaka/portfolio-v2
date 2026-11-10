@@ -10,6 +10,7 @@ import {
 import {
   AnimatePresence,
   motion,
+  useReducedMotion,
   type DOMMotionComponents,
   type HTMLMotionProps,
   type MotionProps,
@@ -79,6 +80,7 @@ export function HyperText({
   ...props
 }: HyperTextProps) {
   const MotionComponent = motionElements[Component] as HyperTextMotionComponent
+  const reduceMotion = useReducedMotion()
 
   const [displayText, setDisplayText] = useState<string[]>(() =>
     children.split("")
@@ -88,7 +90,7 @@ export function HyperText({
   const elementRef = useRef<HTMLElement | null>(null)
 
   const handleAnimationTrigger = () => {
-    if (animateOnHover && !isAnimating) {
+    if (!reduceMotion && animateOnHover && !isAnimating) {
       iterationCount.current = 0
       setIsAnimating(true)
     }
@@ -96,6 +98,7 @@ export function HyperText({
 
   // Handle animation start based on view or delay
   useEffect(() => {
+    if (reduceMotion) return
     if (!startOnView) {
       const startTimeout = setTimeout(() => {
         setIsAnimating(true)
@@ -120,13 +123,13 @@ export function HyperText({
     }
 
     return () => observer.disconnect()
-  }, [delay, startOnView])
+  }, [delay, startOnView, reduceMotion])
 
   // Handle scramble animation
   useEffect(() => {
     let animationFrameId: number | null = null
 
-    if (isAnimating) {
+    if (isAnimating && !reduceMotion) {
       const maxIterations = children.length
       const startTime = performance.now()
 
@@ -161,7 +164,7 @@ export function HyperText({
         cancelAnimationFrame(animationFrameId)
       }
     }
-  }, [children, duration, isAnimating, characterSet])
+  }, [children, duration, isAnimating, characterSet, reduceMotion])
 
   return (
     <MotionComponent
@@ -171,7 +174,7 @@ export function HyperText({
       {...props}
     >
       <AnimatePresence>
-        {displayText.map((letter, index) => (
+        {(reduceMotion ? children.split("") : displayText).map((letter, index) => (
           <motion.span
             key={index}
             className={cn("font-mono", letter === " " ? "w-3" : "")}

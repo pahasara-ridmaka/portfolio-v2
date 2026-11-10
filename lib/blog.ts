@@ -41,8 +41,8 @@ export function getPostBySlug(slug: string): BlogPost {
 export function getAllPosts(): BlogPostMeta[] {
   return getAllSlugs()
     .map((slug) => {
-      const { content, ...meta } = getPostBySlug(slug);
-      return meta;
+      const { title, excerpt, date, tags } = getPostBySlug(slug);
+      return { slug, title, excerpt, date, tags };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }

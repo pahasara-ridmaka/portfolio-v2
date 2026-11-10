@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useParams, notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import "react-photo-view/dist/react-photo-view.css";
@@ -76,9 +77,11 @@ function ProjectDetailPage() {
                 whileHover={{ scale: 1.005 }}
                 transition={{ duration: 0.2 }}
               >
-                <img
+                <Image
                   src={project.images[activeImageIndex]}
                   alt={`${project.title} active preview`}
+                  fill
+                  sizes="(min-width: 768px) 672px, 100vw"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </motion.div>
@@ -97,9 +100,11 @@ function ProjectDetailPage() {
                         : "border-zinc-800 opacity-60 hover:opacity-100 hover:border-zinc-700"
                     }`}
                   >
-                    <img
+                    <Image
                       src={img}
                       alt={`${project.title} thumb ${index + 1}`}
+                      fill
+                      sizes="128px"
                       className="h-full w-full object-cover"
                     />
                   </div>
