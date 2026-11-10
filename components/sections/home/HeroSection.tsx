@@ -2,19 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 import { HyperText } from "@/components/ui/hyper-text";
 import { NavigationMenuDemo } from "@/components/common/NavigationMenu";
-import { Button } from "@/components/ui/button";
+import { SkillsSection } from "@/components/common/SkillsSection";
+import { EducationSection } from "@/components/common/EducationSection";
 import { Highlighter } from "@/components/ui/highlighter";
 import ShimmeringText from "@/components/ui/shimmering-text";
 import { slideUp, staggerContainer } from "@/lib/animations";
 import { projects } from "@/lib/projects";
-
-import GitHubLiveHeatmap from "@/components/common/GitHubLiveHeatmap";
 
 function HeroSection() {
   const [showHighlight, setShowHighlight] = useState(false);
@@ -47,7 +47,7 @@ function HeroSection() {
           variants={slideUp}
           onAnimationComplete={() => setShowHighlight(true)}
         >
-          I'm{" "}
+          I&apos;m{" "}
           {showHighlight ? (
             <Highlighter action="underline" isView={true} animationDuration={0}>
               Pahasara Ridmaka
@@ -62,28 +62,6 @@ function HeroSection() {
           and scalable data pipelines across open-source environments.
         </motion.p>
 
-        {/* GitHub Heatmap Section */}
-        <motion.div variants={slideUp} className="mt-8 space-y-2">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
-              Activity / Contributions
-            </span>
-            <span className="text-[11px] font-mono text-zinc-600">
-              live github stats
-            </span>
-          </div>
-
-          <div className="w-full overflow-hidden flex justify-end">
-            <div className="shrink-0 min-w-max">
-              <GitHubLiveHeatmap />
-            </div>
-          </div>
-
-          <p className="text-[11px] font-mono text-zinc-500 text-right">
-            * synced directly from github commits
-          </p>
-        </motion.div>
-
         {/* Status indicator */}
         <motion.div
           className="flex items-center gap-3 text-xs font-mono"
@@ -92,25 +70,22 @@ function HeroSection() {
           <span className="text-zinc-500">Currently :-</span>
           <ShimmeringText
             className="text-xs tracking-wider"
-            text="Reading Snowflake: The Definitive Guide by Joyce Kay Avila"
+            text="Loooking for new opportunities"
           />
-        </motion.div>
-
-        {/* Action Button */}
-        <motion.div variants={slideUp} className="pt-2">
-          <Button
-            variant="outline"
-            className="rounded-full text-xs h-8 px-4 border-zinc-800 bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-white"
-          >
-            <a href="files/resume.pdf" download>
-              Download CV ↓
-            </a>
-          </Button>
         </motion.div>
 
         <motion.hr variants={slideUp} className="border-zinc-800/60 my-10" />
 
-        {/* Minimal Projects List */}
+        <EducationSection />
+
+        <motion.hr variants={slideUp} className="border-zinc-800/60 my-10" />
+
+        <SkillsSection />
+
+
+        <motion.hr variants={slideUp} className="border-zinc-800/60 my-10" />
+
+        {/* Project Cards */}
         <motion.div variants={slideUp} className="space-y-4">
           <div className="flex justify-between items-center pb-2">
             <HyperText className="text-xs font-mono uppercase text-zinc-500 tracking-wider">
@@ -122,61 +97,84 @@ function HeroSection() {
           </div>
 
           <PhotoProvider maskOpacity={0.9} speed={() => 200}>
-            <div className="divide-y divide-zinc-850/60 border-t border-b border-zinc-850/60">
-              {projects.map((project, index) => (
-                <div
-                  key={project.slug || index}
-                  className="group py-5 flex flex-col md:flex-row md:items-start justify-between gap-4 transition-colors duration-200 hover:bg-zinc-900/30 -mx-3 px-3 rounded-lg"
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {projects.map((project) => (
+                <motion.article
+                  key={project.slug}
+                  variants={slideUp}
+                  className="min-w-0 flex flex-col rounded-lg border border-zinc-800 bg-zinc-900/20 p-4 transition-colors duration-200 hover:border-zinc-600"
                 >
-                  {/* Left: Info */}
-                  <div className="flex-1 space-y-1.5 min-w-0">
-                    <div className="flex items-center gap-3">
+                  {project.images.length > 0 ? (
+                    <PhotoView src={project.images[0]}>
+                      <button
+                        type="button"
+                        aria-label={`Preview ${project.title} image 1`}
+                        className="relative block w-full aspect-video overflow-hidden rounded-md bg-zinc-950 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-300"
+                      >
+                        <Image
+                          src={project.images[0]}
+                          alt={`${project.title} cover`}
+                          fill
+                          sizes="(min-width: 640px) 320px, 100vw"
+                          className="object-cover"
+                        />
+                      </button>
+                    </PhotoView>
+                  ) : (
+                    <div className="flex aspect-video items-center justify-center rounded-md border border-zinc-800 bg-zinc-950 text-xs text-zinc-500">
+                      No preview available
+                    </div>
+                  )}
+
+                  <div className="mt-4 flex flex-1 flex-col gap-2 min-w-0">
+                    <span className="text-[11px] font-mono text-zinc-500">
+                      {project.date}
+                    </span>
+                    <h3 className="text-sm font-medium text-zinc-200 wrap-break-word">
                       <Link
                         href={`/projects/${project.slug}`}
-                        className="text-sm font-medium text-zinc-200 group-hover:text-white transition-colors underline-offset-4 hover:underline"
+                        className="rounded-sm hover:text-white hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-300"
                       >
                         {project.title}
                       </Link>
-                      <span className="text-[11px] font-mono text-zinc-500">
-                        {project.date}
-                      </span>
-                    </div>
-
-                    <p className="text-xs text-zinc-400 leading-normal line-clamp-2 max-w-md">
+                    </h3>
+                    <p className="text-xs text-zinc-400 leading-relaxed wrap-break-word">
                       {project.shortDescription}
                     </p>
                   </div>
 
-                  {/* Right: Compact Image Trigger Previews */}
-                  {project.images && project.images.length > 0 && (
-                    <div className="flex items-center gap-1.5 self-start shrink-0 pt-0.5">
-                      {project.images.slice(0, 3).map((img, imgIndex) => (
-                        <PhotoView key={imgIndex} src={img}>
-                          <div
-                            className="relative w-12 h-8 rounded border border-zinc-800 overflow-hidden bg-zinc-950 cursor-pointer transition-all duration-200 hover:border-zinc-500 hover:scale-110"
-                            title="Click to view image"
+                  {project.images.length > 1 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.images.slice(1).map((img, imgIndex) => (
+                        <PhotoView key={img} src={img}>
+                          <button
+                            type="button"
+                            aria-label={`Preview ${project.title} image ${imgIndex + 2}`}
+                            className="relative w-12 h-8 shrink-0 overflow-hidden rounded border border-zinc-800 bg-zinc-950 cursor-zoom-in transition-colors hover:border-zinc-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zinc-300"
                           >
-                            <img
+                            <Image
                               src={img}
-                              alt={project.title}
-                              className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                              alt=""
+                              fill
+                              sizes="48px"
+                              className="object-cover"
                             />
-                          </div>
+                          </button>
                         </PhotoView>
                       ))}
-                      {project.images.length > 3 && (
-                        <span className="text-[10px] font-mono text-zinc-500 pl-1">
-                          +{project.images.length - 3}
-                        </span>
-                      )}
                     </div>
                   )}
-                </div>
+                </motion.article>
               ))}
-            </div>
+            </motion.div>
           </PhotoProvider>
         </motion.div>
+
       </div>
+
 
       <div className="h-16" />
     </motion.section>

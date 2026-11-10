@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react"
 import type React from "react"
-import { useInView } from "motion/react"
+import { useInView, useReducedMotion } from "motion/react"
 import { annotate } from "rough-notation"
 import { type RoughAnnotation } from "rough-notation/lib/model"
 
@@ -39,6 +39,7 @@ export function Highlighter({
   isView = false,
 }: HighlighterProps) {
   const elementRef = useRef<HTMLSpanElement>(null)
+  const reduceMotion = useReducedMotion()
 
   const isInView = useInView(elementRef, {
     once: true,
@@ -58,7 +59,7 @@ export function Highlighter({
         type: action,
         color,
         strokeWidth,
-        animationDuration,
+        animationDuration: reduceMotion ? 0 : animationDuration,
         iterations,
         padding,
         multiline,
@@ -92,6 +93,7 @@ export function Highlighter({
     iterations,
     padding,
     multiline,
+    reduceMotion,
   ])
 
   return (

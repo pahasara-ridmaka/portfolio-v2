@@ -24,6 +24,7 @@ export function NavigationMenuDemo() {
               render={
                 <a
                   href="https://github.com/pahasara-ridmaka"
+                  aria-label="GitHub"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -36,6 +37,7 @@ export function NavigationMenuDemo() {
               render={
                 <a
                   href="https://www.linkedin.com/in/pahasara-ridmaka"
+                  aria-label="LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -54,7 +56,11 @@ export function NavigationMenuDemo() {
           <NavigationMenuItem>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} transition-all duration-200 hover:scale-105 active:scale-95`}
-              render={<Link href="/blog">Blog</Link>}
+              render={
+                <a href="/files/resume.pdf" download>
+                  Download CV
+                </a>
+              }
             />
           </NavigationMenuItem>
         </NavigationMenuList>
